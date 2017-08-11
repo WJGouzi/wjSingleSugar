@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B5E7FA01F3DF93E00C7F865 /* UIIView+wjExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7F9F1F3DF93E00C7F865 /* UIIView+wjExtension.swift */; };
+		9B5E7FA21F3E082300C7F865 /* wjEachTopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA11F3E082300C7F865 /* wjEachTopicVC.swift */; };
+		9B5E7FA41F3E087F00C7F865 /* wjEachTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA31F3E087F00C7F865 /* wjEachTopicModel.swift */; };
+		9B5E7FA71F3E142100C7F865 /* wjEachPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA51F3E142100C7F865 /* wjEachPageCell.swift */; };
+		9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA61F3E142100C7F865 /* wjEachPageCell.xib */; };
 		C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41AD2401F3D533700A62188 /* Assets.xcassets */; };
 		C41AD25D1F3D55D900A62188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD2591F3D55D900A62188 /* AppDelegate.swift */; };
 		C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD25A1F3D55D900A62188 /* wjMainBaseVC.swift */; };
@@ -25,6 +30,11 @@
 
 /* Begin PBXFileReference section */
 		45D7C28165500BEF0EE1D047 /* Pods-wjSingleSugar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wjSingleSugar.release.xcconfig"; path = "Pods/Target Support Files/Pods-wjSingleSugar/Pods-wjSingleSugar.release.xcconfig"; sourceTree = "<group>"; };
+		9B5E7F9F1F3DF93E00C7F865 /* UIIView+wjExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIView+wjExtension.swift"; sourceTree = "<group>"; };
+		9B5E7FA11F3E082300C7F865 /* wjEachTopicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjEachTopicVC.swift; sourceTree = "<group>"; };
+		9B5E7FA31F3E087F00C7F865 /* wjEachTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjEachTopicModel.swift; sourceTree = "<group>"; };
+		9B5E7FA51F3E142100C7F865 /* wjEachPageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjEachPageCell.swift; sourceTree = "<group>"; };
+		9B5E7FA61F3E142100C7F865 /* wjEachPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjEachPageCell.xib; sourceTree = "<group>"; };
 		B825969F261974843A724D28 /* Pods-wjSingleSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wjSingleSugar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wjSingleSugar/Pods-wjSingleSugar.debug.xcconfig"; sourceTree = "<group>"; };
 		C41AD2361F3D533700A62188 /* wjSingleSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wjSingleSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41AD2401F3D533700A62188 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +71,14 @@
 				E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B5E7F9E1F3DF8AA00C7F865 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B5E7F9F1F3DF93E00C7F865 /* UIIView+wjExtension.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		BA32C41EF6753E761780BE5A /* Pods */ = {
@@ -115,6 +133,7 @@
 		C41AD24F1F3D548800A62188 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				9B5E7F9E1F3DF8AA00C7F865 /* utils */,
 				C41AD2761F3D598D00A62188 /* tool */,
 				C41AD2581F3D55D900A62188 /* C */,
 			);
@@ -155,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C4AAAE461F3DA16A0033A7DA /* wjSingleSugarVC.swift */,
+				9B5E7FA11F3E082300C7F865 /* wjEachTopicVC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -163,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C4AAAE501F3DA7760033A7DA /* wjChannelModel.swift */,
+				9B5E7FA31F3E087F00C7F865 /* wjEachTopicModel.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -170,6 +191,8 @@
 		C41AD2671F3D57D000A62188 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				9B5E7FA51F3E142100C7F865 /* wjEachPageCell.swift */,
+				9B5E7FA61F3E142100C7F865 /* wjEachPageCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -345,6 +368,7 @@
 			files = (
 				C41AD2621F3D56C800A62188 /* Info.plist in Resources */,
 				C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */,
+				9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,14 +430,18 @@
 				C41AD2601F3D55D900A62188 /* wjTabBarVC.swift in Sources */,
 				C4AAAE491F3DA1EF0033A7DA /* wjProductVC.swift in Sources */,
 				C4AAAE4D1F3DA2160033A7DA /* wjMeVC.swift in Sources */,
+				9B5E7FA21F3E082300C7F865 /* wjEachTopicVC.swift in Sources */,
+				9B5E7FA01F3DF93E00C7F865 /* UIIView+wjExtension.swift in Sources */,
 				C4AAAE4F1F3DA54B0033A7DA /* wjNetworkTool.swift in Sources */,
 				C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */,
+				9B5E7FA41F3E087F00C7F865 /* wjEachTopicModel.swift in Sources */,
 				C41AD25D1F3D55D900A62188 /* AppDelegate.swift in Sources */,
 				C41AD2781F3D59A300A62188 /* wjConst.swift in Sources */,
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
 				C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
 				C41AD25F1F3D55D900A62188 /* wjNavigationVC.swift in Sources */,
+				9B5E7FA71F3E142100C7F865 /* wjEachPageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
