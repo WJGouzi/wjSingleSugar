@@ -88,7 +88,7 @@ let kTopViewH: CGFloat = 230
 
 
 /// RGBA的颜色设置
-func wjColor(r r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
+func wjColor(r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
     return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
 }
 

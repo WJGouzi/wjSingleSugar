@@ -19,10 +19,10 @@ class wjTabBarVC: UITabBarController {
     }
     
     fileprivate func wjAddChildControllers() {
-        wjAddChildWithNameAndImage(childVC:UIViewController(), title: "单糖", imageName: "TabBar_home_23x23_")
-        wjAddChildWithNameAndImage(childVC:UIViewController(), title: "单品", imageName: "TabBar_gift_23x23_")
-        wjAddChildWithNameAndImage(childVC:UIViewController(), title: "分类", imageName: "TabBar_category_23x23_")
-        wjAddChildWithNameAndImage(childVC:UIViewController(), title: "我的", imageName: "TabBar_me_boy_23x23_")
+        wjAddChildWithNameAndImage(childVC:wjSingleSugarVC(), title: "单糖", imageName: "TabBar_home_23x23_")
+        wjAddChildWithNameAndImage(childVC:wjProductVC(), title: "单品", imageName: "TabBar_gift_23x23_")
+        wjAddChildWithNameAndImage(childVC:wjCategoryVC(), title: "分类", imageName: "TabBar_category_23x23_")
+        wjAddChildWithNameAndImage(childVC:wjMeVC(), title: "我的", imageName: "TabBar_me_boy_23x23_")
     }
     
     fileprivate func wjAddChildWithNameAndImage(childVC childViewCotroller : UIViewController, title : String, imageName : String) {
