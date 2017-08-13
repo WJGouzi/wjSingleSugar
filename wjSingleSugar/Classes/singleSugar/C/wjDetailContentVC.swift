@@ -17,7 +17,6 @@ class wjDetailContentVC: wjMainBaseVC {
         super.viewDidLoad()
         wjSetWebView()
     }
-    
 }
 
 

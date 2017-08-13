@@ -13,6 +13,8 @@
 		9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA61F3E142100C7F865 /* wjEachPageCell.xib */; };
 		9B5E7FAA1F40371700C7F865 /* wjEachTopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FA91F40371700C7F865 /* wjEachTopicVC.swift */; };
 		9B5E7FAE1F40971300C7F865 /* wjDetailContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FAD1F40971300C7F865 /* wjDetailContentVC.swift */; };
+		9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5E7FAF1F40A72A00C7F865 /* wjProductCell.swift */; };
+		9B5E7FB21F40A72A00C7F865 /* wjProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5E7FB01F40A72A00C7F865 /* wjProductCell.xib */; };
 		C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41AD2401F3D533700A62188 /* Assets.xcassets */; };
 		C41AD25D1F3D55D900A62188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD2591F3D55D900A62188 /* AppDelegate.swift */; };
 		C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD25A1F3D55D900A62188 /* wjMainBaseVC.swift */; };
@@ -37,6 +39,8 @@
 		9B5E7FA61F3E142100C7F865 /* wjEachPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjEachPageCell.xib; sourceTree = "<group>"; };
 		9B5E7FA91F40371700C7F865 /* wjEachTopicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjEachTopicVC.swift; sourceTree = "<group>"; };
 		9B5E7FAD1F40971300C7F865 /* wjDetailContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailContentVC.swift; sourceTree = "<group>"; };
+		9B5E7FAF1F40A72A00C7F865 /* wjProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductCell.swift; sourceTree = "<group>"; };
+		9B5E7FB01F40A72A00C7F865 /* wjProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjProductCell.xib; sourceTree = "<group>"; };
 		B825969F261974843A724D28 /* Pods-wjSingleSugar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wjSingleSugar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wjSingleSugar/Pods-wjSingleSugar.debug.xcconfig"; sourceTree = "<group>"; };
 		C41AD2361F3D533700A62188 /* wjSingleSugar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wjSingleSugar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41AD2401F3D533700A62188 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		C41AD26B1F3D57E200A62188 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				9B5E7FAF1F40A72A00C7F865 /* wjProductCell.swift */,
+				9B5E7FB01F40A72A00C7F865 /* wjProductCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5E7FB21F40A72A00C7F865 /* wjProductCell.xib in Resources */,
 				C41AD2621F3D56C800A62188 /* Info.plist in Resources */,
 				C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */,
 				9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */,
@@ -460,6 +467,7 @@
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
 				C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
+				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,
 				C41AD25F1F3D55D900A62188 /* wjNavigationVC.swift in Sources */,
 				9B5E7FA71F3E142100C7F865 /* wjEachPageCell.swift in Sources */,
 			);
