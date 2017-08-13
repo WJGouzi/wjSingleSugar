@@ -20,23 +20,19 @@ class wjSingleSugarVC: wjMainBaseVC {
     // 当前选中的按钮
     weak var selectedBtn = UIButton()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         wjNavigationSettings()
         wjSingleSugarTopBarDataRequest()
-        
-        
     }
-    
 }
 
 
 // MARK:- 导航栏的设置
 extension wjSingleSugarVC {
     func wjNavigationSettings() {
+        self.title = "单糖"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named : "Feed_SearchBtn_18x18_"), style: .plain, target: self, action: #selector(self.wjSingleSugarSearchAction))
     }
     
@@ -54,8 +50,7 @@ extension wjSingleSugarVC {
         wjNetworkTool.shareNetwork.wjLoadHomePageTopData { (wjChannels) in
             for channel in wjChannels {
                 let vc = wjEachTopicVC()
-                vc.view.backgroundColor = wjColor(r: CGFloat(arc4random()) / 255.0, g: CGFloat(arc4random()) / 255.0, b: CGFloat(arc4random()) / 255.0, a: 1.0)
-                vc.title = channel.name
+                vc.title = channel.name!
                 vc.type = channel.id!
                 weakSelf?.addChildViewController(vc)
             }
@@ -141,8 +136,8 @@ extension wjSingleSugarVC {
     
     // 设置底部的scrollView->展示的就是各个控制器
     func wjShowEachLabelContent() {
-        // 
-        automaticallyAdjustsScrollViewInsets = true
+        // 不要自己调整位置
+        automaticallyAdjustsScrollViewInsets = false
         let contentView = UIScrollView()
         contentView.frame = view.bounds
         contentView.contentSize = CGSize(width: CGFloat(childViewControllers.count) * SCREENW, height: 0)

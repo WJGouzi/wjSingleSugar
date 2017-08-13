@@ -57,9 +57,9 @@ class wjNetworkTool: NSObject {
     // 获取首页的各个标签的内容
     func wjLoadHomePageEachLabelData(id : Int, finished : @escaping (_ eachLabelItem : [wjEachTopicModel])->()) {
         let url = BASE_URL + "v1/channels/\(id)/items"
-        let param = ["gender" : 1 ,
-                     "generation" : 1 ,
-                     "limit" : 20 ,
+        let param = ["gender" : 1,
+                     "generation" : 1,
+                     "limit" : 20,
                      "offset" : 0]
         Alamofire.request(url, parameters: param).responseJSON { (response) in
             print(response)
