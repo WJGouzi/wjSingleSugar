@@ -16,7 +16,7 @@ protocol wjProductCellDelegate : NSObjectProtocol {
 
 class wjProductCell: UICollectionViewCell {
 
-    var delegate : wjProductCellDelegate?
+    weak var delegate : wjProductCellDelegate?
     
     @IBOutlet weak var placeholderBtn: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!

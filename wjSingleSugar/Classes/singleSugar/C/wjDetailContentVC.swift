@@ -13,8 +13,12 @@ class wjDetailContentVC: wjMainBaseVC {
 
     var item : wjEachTopicModel?
     
+    var productItem : wjProductModel?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        wjNavigationSettings()
         wjSetWebView()
     }
 }
@@ -26,13 +30,36 @@ extension wjDetailContentVC {
         webView.frame = view.bounds
         webView.scalesPageToFit = true
         webView.dataDetectorTypes = .all
-        let url = item!.content_url!
+        var url = String()
+        let navArray = navigationController?.viewControllers
+        let vc = navArray?[(navArray?.count)! - 2]
+        if (vc is wjProductDetailVC){
+            url = productItem!.purchase_url!
+        } else {
+            url = item!.content_url!
+        }
         let request = URLRequest(url: URL(string: url)!)
         webView.loadRequest(request)
         webView.delegate = self
         view.addSubview(webView)
     }
+
+    func wjNavigationSettings() {
+        let navArray = navigationController?.viewControllers
+        let vc = navArray?[(navArray?.count)! - 2]
+        if (vc is wjProductDetailVC) {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "GiftShare_icon_18x22_"), style: .plain, target: self, action: #selector(self.shareAction))
+        }
+    }
+
 }
+
+extension wjDetailContentVC {
+    func shareAction() {
+        // 分享
+    }
+}
+
 
 
 extension wjDetailContentVC : UIWebViewDelegate {

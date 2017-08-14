@@ -30,6 +30,10 @@
 		C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE501F3DA7760033A7DA /* wjChannelModel.swift */; };
 		C4ACA9891F413AA90069C6B4 /* wjProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9881F413AA90069C6B4 /* wjProductModel.swift */; };
 		C4ACA98B1F414ADD0069C6B4 /* wjProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA98A1F414ADD0069C6B4 /* wjProductDetailVC.swift */; };
+		C4ACA98F1F4151BE0069C6B4 /* wjProductDetailToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA98E1F4151BE0069C6B4 /* wjProductDetailToolBar.swift */; };
+		C4ACA9911F4151C60069C6B4 /* wjProductDetailToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4ACA9901F4151C60069C6B4 /* wjProductDetailToolBar.xib */; };
+		C4ACA9931F417F9D0069C6B4 /* wjDetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9921F417F9D0069C6B4 /* wjDetailScrollView.swift */; };
+		C4ACA9951F4181140069C6B4 /* wjDetailTopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */; };
 		F10B4F100F36533054C82CC4 /* Pods_wjSingleSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,10 @@
 		C4AAAE501F3DA7760033A7DA /* wjChannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjChannelModel.swift; sourceTree = "<group>"; };
 		C4ACA9881F413AA90069C6B4 /* wjProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductModel.swift; sourceTree = "<group>"; };
 		C4ACA98A1F414ADD0069C6B4 /* wjProductDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductDetailVC.swift; sourceTree = "<group>"; };
+		C4ACA98E1F4151BE0069C6B4 /* wjProductDetailToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductDetailToolBar.swift; sourceTree = "<group>"; };
+		C4ACA9901F4151C60069C6B4 /* wjProductDetailToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjProductDetailToolBar.xib; sourceTree = "<group>"; };
+		C4ACA9921F417F9D0069C6B4 /* wjDetailScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailScrollView.swift; sourceTree = "<group>"; };
+		C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailTopScrollView.swift; sourceTree = "<group>"; };
 		E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wjSingleSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -256,6 +264,10 @@
 			children = (
 				9B5E7FAF1F40A72A00C7F865 /* wjProductCell.swift */,
 				9B5E7FB01F40A72A00C7F865 /* wjProductCell.xib */,
+				C4ACA98E1F4151BE0069C6B4 /* wjProductDetailToolBar.swift */,
+				C4ACA9901F4151C60069C6B4 /* wjProductDetailToolBar.xib */,
+				C4ACA9921F417F9D0069C6B4 /* wjDetailScrollView.swift */,
+				C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -398,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B5E7FB21F40A72A00C7F865 /* wjProductCell.xib in Resources */,
+				C4ACA9911F4151C60069C6B4 /* wjProductDetailToolBar.xib in Resources */,
 				C41AD2621F3D56C800A62188 /* Info.plist in Resources */,
 				C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */,
 				9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */,
@@ -467,6 +480,8 @@
 				C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */,
 				9B5E7FA41F3E087F00C7F865 /* wjEachTopicModel.swift in Sources */,
 				C41AD25D1F3D55D900A62188 /* AppDelegate.swift in Sources */,
+				C4ACA9931F417F9D0069C6B4 /* wjDetailScrollView.swift in Sources */,
+				C4ACA9951F4181140069C6B4 /* wjDetailTopScrollView.swift in Sources */,
 				C41AD2781F3D59A300A62188 /* wjConst.swift in Sources */,
 				9B5E7FAA1F40371700C7F865 /* wjEachTopicVC.swift in Sources */,
 				C4ACA9891F413AA90069C6B4 /* wjProductModel.swift in Sources */,
@@ -474,6 +489,7 @@
 				C4ACA98B1F414ADD0069C6B4 /* wjProductDetailVC.swift in Sources */,
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
 				C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */,
+				C4ACA98F1F4151BE0069C6B4 /* wjProductDetailToolBar.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
 				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,
 				C41AD25F1F3D55D900A62188 /* wjNavigationVC.swift in Sources */,

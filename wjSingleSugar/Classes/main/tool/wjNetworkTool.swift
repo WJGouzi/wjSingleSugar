@@ -12,9 +12,11 @@ import SVProgressHUD
 import SwiftyJSON
 
 class wjNetworkTool: NSObject {
+    /// 属性
     static let shareNetwork =  wjNetworkTool()
     
-    // 获取首页的顶部的选择的数据
+    
+    /// 获取首页的顶部的选择的数据
     func wjLoadHomePageTopData(finished : @escaping (_ wj_channels:[wjChannelModel])->()) {
         let url = BASE_URL + "v2/channels/preset"
         let param = [
@@ -54,7 +56,7 @@ class wjNetworkTool: NSObject {
         }
     }
 
-    // 获取首页的各个标签的内容
+    /// 获取首页的各个标签的内容
     func wjLoadHomePageEachLabelData(id : Int, finished : @escaping (_ eachLabelItem : [wjEachTopicModel])->()) {
         let url = BASE_URL + "v1/channels/\(id)/items"
         let param = ["gender" : 1,
@@ -62,7 +64,6 @@ class wjNetworkTool: NSObject {
                      "limit" : 20,
                      "offset" : 0]
         Alamofire.request(url, parameters: param).responseJSON { (response) in
-            print(response)
             guard response.result.isSuccess else {
                 SVProgressHUD.showError(withStatus: "加载失败")
                 return
@@ -88,7 +89,7 @@ class wjNetworkTool: NSObject {
         }
     }
     
-    // 单品页面的数据
+    /// 单品页面的数据
     func wjLoadProductPageData(finished : @escaping (_ productItems : [wjProductModel])->()) {
         let url = BASE_URL + "v2/items"
         let param = [
@@ -98,7 +99,6 @@ class wjNetworkTool: NSObject {
             "offset": 0
         ]
         Alamofire.request(url, parameters: param).responseJSON { (response) in
-            print(response)
             guard response.result.isSuccess else {
                 SVProgressHUD.showError(withStatus: "加载失败")
                 return

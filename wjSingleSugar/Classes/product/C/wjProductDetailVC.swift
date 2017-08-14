@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import SnapKit
 
 class wjProductDetailVC: wjMainBaseVC {
     // 属性
     var model : wjProductModel?
     
+    lazy var toolBarView : wjProductDetailToolBar = {
+        let toolBar = Bundle.main.loadNibNamed(String(describing : wjProductDetailToolBar.self), owner: nil, options: nil)?.first as! wjProductDetailToolBar
+        toolBar.delegate = self
+        return toolBar
+    }()
+    
+    
+    lazy var contentScrollView : wjDetailScrollView = {
+        let contentView = wjDetailScrollView()
+        contentView.delegate = self
+        contentView.showsHorizontalScrollIndicator = false
+        return contentView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         wjNavigationSettings()
+        wjDetailUISettings()
     }
 }
 
@@ -26,7 +43,20 @@ extension wjProductDetailVC {
     
     // 基本界面的搭建
     func wjDetailUISettings() {
+        // 添加底部的toolBar
+        view.addSubview(toolBarView)
+        toolBarView.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalTo(view)
+            make.height.equalTo(45)
+        }
         
+        view.addSubview(contentScrollView)
+        contentScrollView.product = model
+        contentScrollView.snp.makeConstraints { (make) in
+            make.left.top.right.equalTo(view)
+            make.bottom.equalTo(toolBarView.snp.top)
+        }
+        contentScrollView.contentSize = CGSize(width: SCREENW, height: SCREENH - 64 - 45 + kMargin + 520)
     }
     
     
@@ -40,3 +70,27 @@ extension wjProductDetailVC {
         
     }
 }
+
+
+extension wjProductDetailVC : wjProductDetailToolBarDelegate {
+    func wjGotoTmallClickAction() {
+        // 使用之前的detailContentVC
+        let detailConteVC = wjDetailContentVC()
+        detailConteVC.productItem = model
+        detailConteVC.title = "商品详情"
+        navigationController?.pushViewController(detailConteVC, animated: true)
+    }
+}
+
+
+extension wjProductDetailVC : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var offsetY = scrollView.contentOffset.y
+        if offsetY >= 465 {
+            offsetY = CGFloat(465)
+            scrollView.contentOffset = CGPoint(x: 0, y: offsetY)
+        }
+    }
+}
+
+
