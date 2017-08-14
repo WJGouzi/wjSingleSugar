@@ -11,20 +11,78 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="wjProductCell" customModule="wjSingleSugar" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="174" height="236"/>
+            <rect key="frame" x="0.0" y="0.0" width="139" height="245"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="174" height="236"/>
+                <rect key="frame" x="0.0" y="0.0" width="139" height="245"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbr-h3-6i7">
-                        <rect key="frame" x="55" y="103" width="51" height="31"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </switch>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmZ-p5-y3e">
+                        <rect key="frame" x="54" y="69" width="31" height="26"/>
+                        <state key="normal" image="PlaceHolderImage_small_31x26_"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="APz-NT-STT">
+                        <rect key="frame" x="0.0" y="0.0" width="139" height="164"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="164" id="I5y-D6-MEn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbt-AO-Ge8">
+                        <rect key="frame" x="5" y="176" width="134" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElN-gY-jcE">
+                        <rect key="frame" x="112" y="218.5" width="22" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="Grp-PW-BdP"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="fnZ-p0-5ul"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="0" image="Search_GiftBtn_Default_12x10_">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="wjLikedBtnClickAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="U3N-jW-DsH"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH2-dU-P4O">
+                        <rect key="frame" x="5" y="222" width="38" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.90980392160000001" green="0.3294117647" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
-            <size key="customSize" width="174" height="236"/>
-            <point key="canvasLocation" x="-5" y="29"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="APz-NT-STT" secondAttribute="trailing" id="47Y-J0-lIa"/>
+                <constraint firstItem="APz-NT-STT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="D9h-No-vP2"/>
+                <constraint firstItem="kH2-dU-P4O" firstAttribute="leading" secondItem="Lbt-AO-Ge8" secondAttribute="leading" id="InJ-rH-7Bb"/>
+                <constraint firstItem="ElN-gY-jcE" firstAttribute="centerY" secondItem="kH2-dU-P4O" secondAttribute="centerY" id="OjN-0n-fZ1"/>
+                <constraint firstItem="APz-NT-STT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TOU-rU-8hh"/>
+                <constraint firstItem="Lbt-AO-Ge8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Tb0-HD-VjM"/>
+                <constraint firstAttribute="trailing" secondItem="Lbt-AO-Ge8" secondAttribute="trailing" id="TpA-I3-hKg"/>
+                <constraint firstAttribute="bottom" secondItem="kH2-dU-P4O" secondAttribute="bottom" constant="5" id="WXh-u3-iks"/>
+                <constraint firstAttribute="trailing" secondItem="ElN-gY-jcE" secondAttribute="trailing" constant="5" id="k8B-pr-9De"/>
+                <constraint firstItem="fmZ-p5-y3e" firstAttribute="centerX" secondItem="APz-NT-STT" secondAttribute="centerX" id="qXi-PN-KUj"/>
+                <constraint firstItem="Lbt-AO-Ge8" firstAttribute="top" secondItem="APz-NT-STT" secondAttribute="bottom" constant="12" id="sqL-HS-eAG"/>
+                <constraint firstItem="fmZ-p5-y3e" firstAttribute="centerY" secondItem="APz-NT-STT" secondAttribute="centerY" id="w42-JE-9t1"/>
+            </constraints>
+            <size key="customSize" width="174" height="348"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="APz-NT-STT" id="Wg0-Tk-ScG"/>
+                <outlet property="likedBtn" destination="ElN-gY-jcE" id="sEV-PG-psQ"/>
+                <outlet property="placeholderBtn" destination="fmZ-p5-y3e" id="soI-WC-cIg"/>
+                <outlet property="pricrLabel" destination="kH2-dU-P4O" id="F2c-IO-rmI"/>
+                <outlet property="titleLabel" destination="Lbt-AO-Ge8" id="4ot-ou-ubV"/>
+            </connections>
+            <point key="canvasLocation" x="-134" y="-60"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="PlaceHolderImage_small_31x26_" width="31" height="26"/>
+        <image name="Search_GiftBtn_Default_12x10_" width="12" height="10"/>
+    </resources>
 </document>

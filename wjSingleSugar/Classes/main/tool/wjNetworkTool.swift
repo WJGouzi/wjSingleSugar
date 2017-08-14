@@ -88,7 +88,47 @@ class wjNetworkTool: NSObject {
         }
     }
     
-    
+    // 单品页面的数据
+    func wjLoadProductPageData(finished : @escaping (_ productItems : [wjProductModel])->()) {
+        let url = BASE_URL + "v2/items"
+        let param = [
+            "gender": 1,
+            "generation": 1,
+            "limit": 20,
+            "offset": 0
+        ]
+        Alamofire.request(url, parameters: param).responseJSON { (response) in
+            print(response)
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                
+                if let data = dict["data"].dictionary {
+                    if let items = data["items"]?.arrayObject {
+                        var products = [wjProductModel]()
+                        for product in items {
+                            let productDict = product as! [String : AnyObject]
+                            if let eachProductData = productDict["data"] {
+                                let eachProduct = wjProductModel(dict: eachProductData as! [String : AnyObject])
+                                products.append(eachProduct)
+                            }
+                        }
+                        finished(products)
+                    }
+                }
+            }
+        }
+    }
     
 
 }
