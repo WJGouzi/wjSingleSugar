@@ -76,6 +76,7 @@ class wjNetworkTool: NSObject {
                     SVProgressHUD.showInfo(withStatus: message)
                     return
                 }
+                SVProgressHUD.dismiss()
                 let data = dict["data"].dictionary
                 if let items = data!["items"]?.arrayObject {
                     var eachItems = [wjEachTopicModel]()
@@ -112,7 +113,7 @@ class wjNetworkTool: NSObject {
                     SVProgressHUD.showInfo(withStatus: message)
                     return
                 }
-                
+                SVProgressHUD.dismiss()
                 if let data = dict["data"].dictionary {
                     if let items = data["items"]?.arrayObject {
                         var products = [wjProductModel]()
@@ -129,6 +130,69 @@ class wjNetworkTool: NSObject {
             }
         }
     }
+    
+    
+    /// 获取单品详情的数据
+    func wjLoadEachProductItemIntroduceData(id : Int, finished: @escaping (_ productDetailItem : wjProductDetailModel)->()) {
+        let url = BASE_URL + "v2/items/\(id)"
+        Alamofire.request(url).responseJSON { (response) in
+            print(response)
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionaryObject {
+                    let productItem = wjProductDetailModel(dict: data as [String : AnyObject])
+                    finished(productItem)
+                }
+            }
+        }
+    }
+    
+    
+    // 单品列表中每个商品的评论
+    func wjLoadEachProductComments(id : Int, finished : @escaping(_ comments : [wjCommentModel])->()) {
+        let url = BASE_URL + "v2/items/\(id)/comments"
+        let param = ["limit": 20,
+                      "offset": 0]
+        
+        Alamofire.request(url, parameters: param).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                let data = dict["data"].dictionary
+                if let comments = data!["comments"]?.arrayObject {
+                    var commentItems = [wjCommentModel]()
+                    for comment in comments {
+                        let eachItem = wjCommentModel(dict: comment as! [String : AnyObject])
+                        commentItems.append(eachItem)
+                    }
+                    finished(commentItems)
+                }
+            }
+        }
+    }
+    
+    
     
 
 }
