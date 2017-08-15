@@ -63,7 +63,7 @@
                 <outlet property="placeHolderBtn" destination="1pO-Je-BZj" id="AfA-bl-tUK"/>
                 <outlet property="titleLabel" destination="XjY-Ib-5g8" id="37T-jd-33q"/>
             </connections>
-            <point key="canvasLocation" x="-158.5" y="169.5"/>
+            <point key="canvasLocation" x="35" y="56"/>
         </tableViewCell>
     </objects>
     <resources>

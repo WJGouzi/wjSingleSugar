@@ -22,6 +22,8 @@
 		C41AD2601F3D55D900A62188 /* wjTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD25C1F3D55D900A62188 /* wjTabBarVC.swift */; };
 		C41AD2621F3D56C800A62188 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C41AD2611F3D56C800A62188 /* Info.plist */; };
 		C41AD2781F3D59A300A62188 /* wjConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD2771F3D59A300A62188 /* wjConst.swift */; };
+		C46EA9521F42F7CE00DF9F08 /* wjCateDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */; };
+		C46EA9541F42FC1F00DF9F08 /* wjCateDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */; };
 		C476BF2B1F42834B00E51650 /* wjDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476BF2A1F42834B00E51650 /* wjDetailBottomView.swift */; };
 		C476BF2D1F42867B00E51650 /* wjChoiceBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476BF2C1F42867B00E51650 /* wjChoiceBtn.swift */; };
 		C476BF2F1F42868D00E51650 /* wjChoiceBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */; };
@@ -65,6 +67,8 @@
 		C41AD25C1F3D55D900A62188 /* wjTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjTabBarVC.swift; sourceTree = "<group>"; };
 		C41AD2611F3D56C800A62188 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41AD2771F3D59A300A62188 /* wjConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjConst.swift; sourceTree = "<group>"; };
+		C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailVC.swift; sourceTree = "<group>"; };
+		C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailModel.swift; sourceTree = "<group>"; };
 		C476BF2A1F42834B00E51650 /* wjDetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailBottomView.swift; sourceTree = "<group>"; };
 		C476BF2C1F42867B00E51650 /* wjChoiceBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjChoiceBtn.swift; sourceTree = "<group>"; };
 		C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjChoiceBtn.xib; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */,
+				C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C40D231F42DD470052A91C /* wjCateTopModel.swift */,
+				C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -522,8 +528,10 @@
 				9B5E7FAE1F40971300C7F865 /* wjDetailContentVC.swift in Sources */,
 				C4ACA98B1F414ADD0069C6B4 /* wjProductDetailVC.swift in Sources */,
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
+				C46EA9521F42F7CE00DF9F08 /* wjCateDetailVC.swift in Sources */,
 				C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */,
 				C4C40D241F42DD470052A91C /* wjCateTopModel.swift in Sources */,
+				C46EA9541F42FC1F00DF9F08 /* wjCateDetailModel.swift in Sources */,
 				C4ACA98F1F4151BE0069C6B4 /* wjProductDetailToolBar.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
 				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,

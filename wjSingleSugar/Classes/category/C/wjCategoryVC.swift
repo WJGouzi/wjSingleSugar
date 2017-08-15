@@ -76,8 +76,12 @@ extension wjCategoryVC : wjCategoryDelegate {
     }
     
     // 图片的点击事件
-    func wjImageViewDidSelected(_ selectedIndex: Int) {
-        print(selectedIndex)
+    func wjImageViewDidSelected(_ model: wjCateTopModel) {
+        print(model.title!)
+        // 点击进入到cell详情界面去
+        let cateDetailVC = wjCateDetailVC()
+        cateDetailVC.title = model.title!
+//        cateDetailVC.model = model
+        navigationController?.pushViewController(cateDetailVC, animated: true)
     }
-    
 }

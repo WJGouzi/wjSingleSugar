@@ -14,7 +14,7 @@ protocol wjCategoryDelegate {
     func wjLoadMoreBtnAction()
     
     // 点击图片的点击事件
-    func wjImageViewDidSelected(_ selectedIndex : Int)
+    func wjImageViewDidSelected(_ model : wjCateTopModel)
 }
 
 class wjCateTopScrollview: UIView {
@@ -62,9 +62,11 @@ class wjCateTopScrollview: UIView {
                 imageView.frame = CGRect(x: 5, y: 0, width: backView.width - 10, height: backView.height)
                 imageView.kf.setImage(with: URL(string : value.banner_image_url!), placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
                 imageView.isUserInteractionEnabled = true
+                imageView.tag = index
                 // 添加手势
                 let tap = UITapGestureRecognizer(target: self, action: #selector(self.wjImageViewDidSelected(_ :)))
                 imageView.addGestureRecognizer(tap)
+                
                 
                 backView.addSubview(imageView)
                 self.subjectScrollView.addSubview(backView)
@@ -134,10 +136,8 @@ extension wjCateTopScrollview {
     }
     
     // 点击手势
-    func wjImageViewDidSelected(_ selectedIndex : Int) {
-        delegate?.wjImageViewDidSelected(selectedIndex)
+    func wjImageViewDidSelected(_ tap : UITapGestureRecognizer) {
+        delegate?.wjImageViewDidSelected(cateTopModels[tap.view!.tag])
     }
-    
-    
 }
 
