@@ -37,6 +37,20 @@ class wjEachPageCell: UITableViewCell {
         }
     }
     
+    // 分类的具体展示的模型
+    var detailModel : wjCateDetailModel? {
+        didSet {
+            let url = detailModel?.cover_image_url
+            backgroundImageView.kf.setImage(with: URL(string : url!)!, placeholder: nil, options: nil, progressBlock: nil) { (image, error, CacheType, imageUrl) in
+                self.placeHolderBtn.isHidden = true
+            }
+            titleLabel.text = detailModel!.title!
+            likedBtn.setTitle(" " + String(describing: detailModel!.likes_count!) + " ", for: .normal)
+        }
+    }
+    
+    
+    
     
     
     override func awakeFromNib() {

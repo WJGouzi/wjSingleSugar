@@ -12,6 +12,7 @@ import SVProgressHUD
 class wjDetailContentVC: wjMainBaseVC {
 
     var item : wjEachTopicModel?
+    var detailModel : wjCateDetailModel?
     
     var productItem : wjProductModel?
     
@@ -35,6 +36,8 @@ extension wjDetailContentVC {
         let vc = navArray?[(navArray?.count)! - 2]
         if (vc is wjProductDetailVC){
             url = productItem!.purchase_url!
+        } else if (vc is wjCateDetailVC) {
+            url = detailModel!.content_url!
         } else {
             url = item!.content_url!
         }

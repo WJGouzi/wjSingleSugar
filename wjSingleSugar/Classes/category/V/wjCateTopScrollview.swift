@@ -51,7 +51,6 @@ class wjCateTopScrollview: UIView {
     
     var cateTopModels : [wjCateTopModel] = [] {
         didSet {
-            print(cateTopModels.count)
             // 循环创建scrollview
             let backW = CGFloat(150)
             for (index, value) in cateTopModels.enumerated() {

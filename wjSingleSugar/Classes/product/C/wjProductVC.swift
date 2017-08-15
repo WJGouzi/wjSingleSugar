@@ -59,7 +59,6 @@ extension wjProductVC {
 // MARK:- UICollectionViewDataSource
 extension wjProductVC : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(self.productModels.count)
         return self.productModels.count
     }
     

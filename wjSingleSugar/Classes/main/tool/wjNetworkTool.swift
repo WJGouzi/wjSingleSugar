@@ -197,7 +197,6 @@ class wjNetworkTool: NSObject {
         let params = ["limit": limit,
                       "offset": 0]
         Alamofire.request(url, parameters: params).responseJSON { (response) in
-            print(response)
             guard response.result.isSuccess else {
                 SVProgressHUD.showError(withStatus: "加载失败...")
                 return
@@ -213,7 +212,7 @@ class wjNetworkTool: NSObject {
                 SVProgressHUD.dismiss()
                 if let data = dict["data"].dictionary {
                     if let cateTopDatas = data["collections"]?.arrayObject {
-                        var cateTopModels = [wjCateTopModel]()
+                    var cateTopModels = [wjCateTopModel]()
                     for item in cateTopDatas {
                         let collection = wjCateTopModel(dict: item as! [String: AnyObject])
                         cateTopModels.append(collection)
@@ -225,6 +224,45 @@ class wjNetworkTool: NSObject {
         }
     }
 
+    
+    // 展示每个分类的详情列表
+    func wjLoadEachCategoryDetailData(id : Int , finished : @escaping (_ model : [wjCateDetailModel])->()) {
+        SVProgressHUD.show(withStatus: "正在加载...")
+        let url = BASE_URL + "v1/collections/\(id)/posts"
+        let param = ["gender" : 1,
+                     "generation" : 1,
+                     "limit" : 20,
+                     "offset" : 0]
+        
+        Alamofire.request(url, parameters: param).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionary {
+                    if let posts = data["posts"]?.arrayObject {
+                        var postsModels = [wjCateDetailModel]()
+                        for post in posts {
+                            let postDict = wjCateDetailModel(dict: post as! [String : AnyObject])
+                            postsModels.append(postDict)
+                        }
+                        finished(postsModels)
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
 
 }
