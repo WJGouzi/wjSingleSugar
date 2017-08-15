@@ -41,6 +41,8 @@
 		C4ACA9911F4151C60069C6B4 /* wjProductDetailToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4ACA9901F4151C60069C6B4 /* wjProductDetailToolBar.xib */; };
 		C4ACA9931F417F9D0069C6B4 /* wjDetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9921F417F9D0069C6B4 /* wjDetailScrollView.swift */; };
 		C4ACA9951F4181140069C6B4 /* wjDetailTopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */; };
+		C4C40D201F42D06E0052A91C /* wjCateTopScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */; };
+		C4C40D241F42DD470052A91C /* wjCateTopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C40D231F42DD470052A91C /* wjCateTopModel.swift */; };
 		F10B4F100F36533054C82CC4 /* Pods_wjSingleSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		C4ACA9901F4151C60069C6B4 /* wjProductDetailToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjProductDetailToolBar.xib; sourceTree = "<group>"; };
 		C4ACA9921F417F9D0069C6B4 /* wjDetailScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailScrollView.swift; sourceTree = "<group>"; };
 		C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailTopScrollView.swift; sourceTree = "<group>"; };
+		C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateTopScrollview.swift; sourceTree = "<group>"; };
+		C4C40D231F42DD470052A91C /* wjCateTopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateTopModel.swift; sourceTree = "<group>"; };
 		E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wjSingleSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -314,6 +318,7 @@
 		C41AD26E1F3D57EB00A62188 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				C4C40D231F42DD470052A91C /* wjCateTopModel.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 		C41AD26F1F3D57EB00A62188 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				C41AD2601F3D55D900A62188 /* wjTabBarVC.swift in Sources */,
 				C4AAAE491F3DA1EF0033A7DA /* wjProductVC.swift in Sources */,
 				C4AAAE4D1F3DA2160033A7DA /* wjMeVC.swift in Sources */,
+				C4C40D201F42D06E0052A91C /* wjCateTopScrollview.swift in Sources */,
 				9B5E7FA01F3DF93E00C7F865 /* UIIView+wjExtension.swift in Sources */,
 				C4AAAE4F1F3DA54B0033A7DA /* wjNetworkTool.swift in Sources */,
 				C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */,
@@ -516,6 +523,7 @@
 				C4ACA98B1F414ADD0069C6B4 /* wjProductDetailVC.swift in Sources */,
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
 				C4AAAE511F3DA7760033A7DA /* wjChannelModel.swift in Sources */,
+				C4C40D241F42DD470052A91C /* wjCateTopModel.swift in Sources */,
 				C4ACA98F1F4151BE0069C6B4 /* wjProductDetailToolBar.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
 				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,

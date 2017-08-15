@@ -35,7 +35,6 @@ class wjNetworkTool: NSObject {
                 let dict = JSON(value)
                 let code = dict["code"].intValue
                 let message = dict["message"].stringValue
-                
                 guard code == RETURN_OK else {
                     SVProgressHUD.showInfo(withStatus: message)
                     return
@@ -136,7 +135,6 @@ class wjNetworkTool: NSObject {
     func wjLoadEachProductItemIntroduceData(id : Int, finished: @escaping (_ productDetailItem : wjProductDetailModel)->()) {
         let url = BASE_URL + "v2/items/\(id)"
         Alamofire.request(url).responseJSON { (response) in
-            print(response)
             guard response.result.isSuccess else {
                 SVProgressHUD.showError(withStatus: "加载失败")
                 return
@@ -164,7 +162,6 @@ class wjNetworkTool: NSObject {
         let url = BASE_URL + "v2/items/\(id)/comments"
         let param = ["limit": 20,
                       "offset": 0]
-        
         Alamofire.request(url, parameters: param).responseJSON { (response) in
             guard response.result.isSuccess else {
                 SVProgressHUD.showError(withStatus: "加载失败")
@@ -193,6 +190,41 @@ class wjNetworkTool: NSObject {
     }
     
     
+    /// 分类页面顶部的scrollview的展示的图片
+    func wjLoadCategoryTopCollection(limit: Int, finished:@escaping (_ collections: [wjCateTopModel]) -> ()) {
+        SVProgressHUD.show(withStatus: "正在加载...")
+        let url = BASE_URL + "v1/collections"
+        let params = ["limit": limit,
+                      "offset": 0]
+        Alamofire.request(url, parameters: params).responseJSON { (response) in
+            print(response)
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败...")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionary {
+                    if let cateTopDatas = data["collections"]?.arrayObject {
+                        var cateTopModels = [wjCateTopModel]()
+                    for item in cateTopDatas {
+                        let collection = wjCateTopModel(dict: item as! [String: AnyObject])
+                        cateTopModels.append(collection)
+                        }
+                        finished(cateTopModels)
+                    }
+                }
+            }
+        }
+    }
+
     
 
 }
