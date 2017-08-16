@@ -34,6 +34,13 @@
 		C476BF371F429EAE00E51650 /* wjCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476BF361F429EAE00E51650 /* wjCommentModel.swift */; };
 		C485A6861F43DDB000F1D084 /* wjGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485A6851F43DDB000F1D084 /* wjGroupModel.swift */; };
 		C485A6881F43E29F00F1D084 /* wjCollectionBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C485A6871F43E29F00F1D084 /* wjCollectionBtn.swift */; };
+		C489A4EF1F441EB000C5AE2A /* wjMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A4EE1F441EB000C5AE2A /* wjMeHeaderView.swift */; };
+		C489A4F11F4428B900C5AE2A /* wjFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A4F01F4428B900C5AE2A /* wjFooterView.swift */; };
+		C49160601F442E46002367BE /* wjSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491605F1F442E46002367BE /* wjSettingsVC.swift */; };
+		C49160621F442F32002367BE /* SettingCell.plist in Resources */ = {isa = PBXBuildFile; fileRef = C49160611F442F31002367BE /* SettingCell.plist */; };
+		C49160641F443089002367BE /* wjSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49160631F443089002367BE /* wjSettingModel.swift */; };
+		C49160671F4433A4002367BE /* wjSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49160651F4433A4002367BE /* wjSettingCell.swift */; };
+		C49160681F4433A4002367BE /* wjSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49160661F4433A4002367BE /* wjSettingCell.xib */; };
 		C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE461F3DA16A0033A7DA /* wjSingleSugarVC.swift */; };
 		C4AAAE491F3DA1EF0033A7DA /* wjProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE481F3DA1EF0033A7DA /* wjProductVC.swift */; };
 		C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */; };
@@ -48,6 +55,9 @@
 		C4ACA9951F4181140069C6B4 /* wjDetailTopScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */; };
 		C4C40D201F42D06E0052A91C /* wjCateTopScrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */; };
 		C4C40D241F42DD470052A91C /* wjCateTopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C40D231F42DD470052A91C /* wjCateTopModel.swift */; };
+		C4FECA761F43EFAA00D7688F /* wjSeeAllVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FECA751F43EFAA00D7688F /* wjSeeAllVC.swift */; };
+		C4FECA791F43F0A800D7688F /* wjSeeAllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FECA771F43F0A800D7688F /* wjSeeAllCell.swift */; };
+		C4FECA7A1F43F0A800D7688F /* wjSeeAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FECA781F43F0A800D7688F /* wjSeeAllCell.xib */; };
 		F10B4F100F36533054C82CC4 /* Pods_wjSingleSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +92,13 @@
 		C476BF361F429EAE00E51650 /* wjCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCommentModel.swift; sourceTree = "<group>"; };
 		C485A6851F43DDB000F1D084 /* wjGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjGroupModel.swift; sourceTree = "<group>"; };
 		C485A6871F43E29F00F1D084 /* wjCollectionBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCollectionBtn.swift; sourceTree = "<group>"; };
+		C489A4EE1F441EB000C5AE2A /* wjMeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjMeHeaderView.swift; sourceTree = "<group>"; };
+		C489A4F01F4428B900C5AE2A /* wjFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjFooterView.swift; sourceTree = "<group>"; };
+		C491605F1F442E46002367BE /* wjSettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSettingsVC.swift; sourceTree = "<group>"; };
+		C49160611F442F31002367BE /* SettingCell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SettingCell.plist; sourceTree = "<group>"; };
+		C49160631F443089002367BE /* wjSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSettingModel.swift; sourceTree = "<group>"; };
+		C49160651F4433A4002367BE /* wjSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSettingCell.swift; sourceTree = "<group>"; };
+		C49160661F4433A4002367BE /* wjSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjSettingCell.xib; sourceTree = "<group>"; };
 		C4AAAE461F3DA16A0033A7DA /* wjSingleSugarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSingleSugarVC.swift; sourceTree = "<group>"; };
 		C4AAAE481F3DA1EF0033A7DA /* wjProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductVC.swift; sourceTree = "<group>"; };
 		C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCategoryVC.swift; sourceTree = "<group>"; };
@@ -96,6 +113,9 @@
 		C4ACA9941F4181140069C6B4 /* wjDetailTopScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailTopScrollView.swift; sourceTree = "<group>"; };
 		C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateTopScrollview.swift; sourceTree = "<group>"; };
 		C4C40D231F42DD470052A91C /* wjCateTopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateTopModel.swift; sourceTree = "<group>"; };
+		C4FECA751F43EFAA00D7688F /* wjSeeAllVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSeeAllVC.swift; sourceTree = "<group>"; };
+		C4FECA771F43F0A800D7688F /* wjSeeAllCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSeeAllCell.swift; sourceTree = "<group>"; };
+		C4FECA781F43F0A800D7688F /* wjSeeAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjSeeAllCell.xib; sourceTree = "<group>"; };
 		E72F7AFED13FA99BD6953D93 /* Pods_wjSingleSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wjSingleSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -216,6 +236,7 @@
 		C41AD2631F3D56E000A62188 /* others */ = {
 			isa = PBXGroup;
 			children = (
+				C49160611F442F31002367BE /* SettingCell.plist */,
 				C41AD2611F3D56C800A62188 /* Info.plist */,
 			);
 			name = others;
@@ -322,6 +343,7 @@
 			children = (
 				C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */,
 				C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */,
+				C4FECA751F43EFAA00D7688F /* wjSeeAllVC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -342,6 +364,8 @@
 				C4C40D1F1F42D06E0052A91C /* wjCateTopScrollview.swift */,
 				C46DD8ED1F43D3F000462CFC /* wjStyleAndClassView.swift */,
 				C485A6871F43E29F00F1D084 /* wjCollectionBtn.swift */,
+				C4FECA771F43F0A800D7688F /* wjSeeAllCell.swift */,
+				C4FECA781F43F0A800D7688F /* wjSeeAllCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -360,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				C4AAAE4C1F3DA2160033A7DA /* wjMeVC.swift */,
+				C491605F1F442E46002367BE /* wjSettingsVC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -367,6 +392,7 @@
 		C41AD2721F3D57F600A62188 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				C49160631F443089002367BE /* wjSettingModel.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -374,6 +400,10 @@
 		C41AD2731F3D57F600A62188 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C489A4EE1F441EB000C5AE2A /* wjMeHeaderView.swift */,
+				C489A4F01F4428B900C5AE2A /* wjFooterView.swift */,
+				C49160651F4433A4002367BE /* wjSettingCell.swift */,
+				C49160661F4433A4002367BE /* wjSettingCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -451,13 +481,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FECA7A1F43F0A800D7688F /* wjSeeAllCell.xib in Resources */,
 				C476BF2F1F42868D00E51650 /* wjChoiceBtn.xib in Resources */,
 				9B5E7FB21F40A72A00C7F865 /* wjProductCell.xib in Resources */,
 				C4ACA9911F4151C60069C6B4 /* wjProductDetailToolBar.xib in Resources */,
 				C41AD2621F3D56C800A62188 /* Info.plist in Resources */,
+				C49160621F442F32002367BE /* SettingCell.plist in Resources */,
 				C476BF351F429C6F00E51650 /* wjCommentCell.xib in Resources */,
 				C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */,
 				9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */,
+				C49160681F4433A4002367BE /* wjSettingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +555,7 @@
 				C4C40D201F42D06E0052A91C /* wjCateTopScrollview.swift in Sources */,
 				9B5E7FA01F3DF93E00C7F865 /* UIIView+wjExtension.swift in Sources */,
 				C4AAAE4F1F3DA54B0033A7DA /* wjNetworkTool.swift in Sources */,
+				C489A4EF1F441EB000C5AE2A /* wjMeHeaderView.swift in Sources */,
 				C41AD25E1F3D55D900A62188 /* wjMainBaseVC.swift in Sources */,
 				C476BF371F429EAE00E51650 /* wjCommentModel.swift in Sources */,
 				C476BF311F42918400E51650 /* wjProductDetailModel.swift in Sources */,
@@ -529,13 +563,16 @@
 				C46DD8EE1F43D3F000462CFC /* wjStyleAndClassView.swift in Sources */,
 				C41AD25D1F3D55D900A62188 /* AppDelegate.swift in Sources */,
 				C4ACA9931F417F9D0069C6B4 /* wjDetailScrollView.swift in Sources */,
+				C49160671F4433A4002367BE /* wjSettingCell.swift in Sources */,
 				C4ACA9951F4181140069C6B4 /* wjDetailTopScrollView.swift in Sources */,
+				C49160641F443089002367BE /* wjSettingModel.swift in Sources */,
 				C41AD2781F3D59A300A62188 /* wjConst.swift in Sources */,
 				C476BF341F429C6F00E51650 /* wjCommentCell.swift in Sources */,
 				9B5E7FAA1F40371700C7F865 /* wjEachTopicVC.swift in Sources */,
 				C476BF2D1F42867B00E51650 /* wjChoiceBtn.swift in Sources */,
 				C4ACA9891F413AA90069C6B4 /* wjProductModel.swift in Sources */,
 				9B5E7FAE1F40971300C7F865 /* wjDetailContentVC.swift in Sources */,
+				C4FECA791F43F0A800D7688F /* wjSeeAllCell.swift in Sources */,
 				C4ACA98B1F414ADD0069C6B4 /* wjProductDetailVC.swift in Sources */,
 				C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */,
 				C46EA9521F42F7CE00DF9F08 /* wjCateDetailVC.swift in Sources */,
@@ -546,8 +583,11 @@
 				C4ACA98F1F4151BE0069C6B4 /* wjProductDetailToolBar.swift in Sources */,
 				C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */,
 				C485A6861F43DDB000F1D084 /* wjGroupModel.swift in Sources */,
+				C49160601F442E46002367BE /* wjSettingsVC.swift in Sources */,
+				C489A4F11F4428B900C5AE2A /* wjFooterView.swift in Sources */,
 				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,
 				C41AD25F1F3D55D900A62188 /* wjNavigationVC.swift in Sources */,
+				C4FECA761F43EFAA00D7688F /* wjSeeAllVC.swift in Sources */,
 				C476BF2B1F42834B00E51650 /* wjDetailBottomView.swift in Sources */,
 				9B5E7FA71F3E142100C7F865 /* wjEachPageCell.swift in Sources */,
 			);

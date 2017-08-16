@@ -120,7 +120,6 @@ extension wjStyleAndClassView {
         button.setTitle(group.name, for: .normal)
         return button
     }
-    
 }
 
 // 点击事件

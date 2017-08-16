@@ -82,7 +82,10 @@ extension wjCategoryVC : wjCategoryDelegate, wjStyleAndClassDelegate {
     
     // 顶部加载更多按钮的
     func wjLoadMoreBtnAction() {
-        print("123")
+//        print("123")
+        let seeAllVC = wjSeeAllVC()
+        seeAllVC.title = "查看全部"
+        navigationController?.pushViewController(seeAllVC, animated: true)
     }
     
     // 图片的点击事件
