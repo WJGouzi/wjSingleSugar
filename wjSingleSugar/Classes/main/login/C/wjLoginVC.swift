@@ -22,6 +22,13 @@ class wjLoginVC: wjMainBaseVC {
         wjNavigatonSettings()
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        view.endEditing(true)
+    }
+    
+    
     func wjNavigatonSettings() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(self.wjCancelAction))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(self.wjRigesterAction))
@@ -33,7 +40,9 @@ class wjLoginVC: wjMainBaseVC {
     }
     
     func wjRigesterAction() {
-        
+        let registerVC = wjRegisterVC()
+        registerVC.title = "注册"
+        navigationController?.pushViewController(registerVC, animated: true)
     }
     
     @IBAction func wjLoginAction(_ sender: UIButton) {

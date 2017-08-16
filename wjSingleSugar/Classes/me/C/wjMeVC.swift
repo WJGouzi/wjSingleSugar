@@ -36,6 +36,11 @@ class wjMeVC: wjMainBaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: false) // 隐藏导航栏
+        if !UserDefaults.standard.bool(forKey: isLogin) {
+            tableView?.tableFooterView = footerView
+        } else {
+            tableView?.tableFooterView = UIView()
+        }
         self.tableView?.reloadData()
     }
     
