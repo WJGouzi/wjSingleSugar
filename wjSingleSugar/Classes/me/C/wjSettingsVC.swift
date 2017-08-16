@@ -19,7 +19,6 @@ class wjSettingsVC: wjMainBaseVC {
         wjSetUpUI()
         wjLoadPlistData()
     }
-
 }
 
 extension wjSettingsVC {
