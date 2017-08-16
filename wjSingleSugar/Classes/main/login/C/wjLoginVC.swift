@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class wjLoginVC: wjMainBaseVC {
 
@@ -36,12 +37,24 @@ class wjLoginVC: wjMainBaseVC {
     }
     
     @IBAction func wjLoginAction(_ sender: UIButton) {
+        
+        if telephoneNumberTF.text?.characters.count != 0 && passwordTF.text?.characters.count != 0 {
+            // 有文字
+            UserDefaults.standard.set(telephoneNumberTF.text, forKey: wjUserTelephone)
+            UserDefaults.standard.set(passwordTF.text, forKey: wjPassword)
+            UserDefaults.standard.set(true, forKey: isLogin)
+        } else {
+            SVProgressHUD.showError(withStatus: "请完善用户信息")
+        }
+        
     }
 
     @IBAction func wjForgetPasswordAction(_ sender: UIButton) {
+        
     }
 
     @IBAction func wjThirdAppLoginClickAction(_ sender: UIButton) {
+    
     }
     
 

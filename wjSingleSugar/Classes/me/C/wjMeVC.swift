@@ -17,7 +17,7 @@ class wjMeVC: wjMainBaseVC {
         headerview.frame = CGRect(x: 0, y: 0, width: SCREENW, height: kwjMineHeaderImageHeight)
         headerview.noticeBtn.addTarget(self, action: #selector(self.noticeBtnAction), for: .touchUpInside)
         headerview.settingsBtn.addTarget(self, action: #selector(self.settingsBtnAction), for: .touchUpInside)
-        headerview.headImageBtn.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
+        headerview.headImageBtn.addTarget(self, action: #selector(self.wjHeadImageBtnClickAction), for: .touchUpInside)
         return headerview
     }()
     
@@ -134,7 +134,23 @@ extension wjMeVC {
         navigationController?.pushViewController(settingVC, animated: true)
     }
     
-    // 头像的点击和底部的登录按钮的点击
+    
+    
+    
+    
+    // 头像的点击和修改头像按钮的点击
+    func wjHeadImageBtnClickAction() {
+        if UserDefaults.standard.bool(forKey: isLogin) {
+            // 登录就修改头像
+            
+        } else {
+            // 没有登录就就进行登录
+            loginAction()
+        }
+    }
+    
+    
+    // footerView上的点击事件
     func loginAction() {
         let loginVC = wjLoginVC()
         loginVC.title = "登录"

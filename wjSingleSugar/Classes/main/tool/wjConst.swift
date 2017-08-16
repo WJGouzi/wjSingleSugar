@@ -54,6 +54,10 @@ let BASE_URL = "http://api.dantangapp.com/"
 let wjFirstLaunch = "firstLaunch"
 /// 是否登录
 let isLogin = "isLogin"
+let wjUserTelephone = "telephone"
+let wjPassword = "password"
+
+
 
 /// code 码 200 操作成功
 let RETURN_OK = 200
