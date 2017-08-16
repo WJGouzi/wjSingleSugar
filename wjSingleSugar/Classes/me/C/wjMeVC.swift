@@ -10,6 +10,8 @@ import UIKit
 
 class wjMeVC: wjMainBaseVC {
 
+    var tableView : UITableView?
+    
     
     // 懒加载
     lazy var headerView : wjMeHeaderView = {
@@ -34,6 +36,7 @@ class wjMeVC: wjMainBaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: false) // 隐藏导航栏
+        self.tableView?.reloadData()
     }
     
     override func viewDidLoad() {
@@ -54,9 +57,13 @@ extension wjMeVC {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableHeaderView = headerView
-        tableview.tableFooterView = footerView
+        if !UserDefaults.standard.bool(forKey: isLogin) {
+            tableview.tableFooterView = footerView
+        } else {
+            tableview.tableFooterView = UIView()
+        }
         view.addSubview(tableview)
-        
+        self.tableView = tableview
     }
 }
 
@@ -110,11 +117,14 @@ extension wjMeVC : UITableViewDelegate {
 extension wjMeVC {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
+        print(offsetY)
         if offsetY < 0 {
             var tempFrame = headerView.backImageView.frame
             tempFrame.origin.y = offsetY
             tempFrame.size.height = kwjMineHeaderImageHeight - offsetY
             headerView.backImageView.frame = tempFrame
+        } else if offsetY >= 180 {
+            
         }
         
     }
@@ -133,8 +143,6 @@ extension wjMeVC {
         settingVC.title = "更多"
         navigationController?.pushViewController(settingVC, animated: true)
     }
-    
-    
     
     
     

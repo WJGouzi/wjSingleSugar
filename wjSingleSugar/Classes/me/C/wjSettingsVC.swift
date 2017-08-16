@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 
 let settingIden = "settingsCell"
 
@@ -16,15 +18,27 @@ class wjSettingsVC: wjMainBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        wjNavigationSettings()
         wjSetUpUI()
         wjLoadPlistData()
     }
 }
 
+// 界面的搭建
 extension wjSettingsVC {
+    
+    func wjNavigationSettings() {
+        var name = String()
+        if UserDefaults.standard.bool(forKey: isLogin) {
+            name = "注销"
+        } else {
+            name = "登录"
+        }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: name, style: .plain, target: self, action: #selector(self.logOutAndInAction))
+    }
+    
     func wjSetUpUI() {
         let tableview = UITableView(frame: view.bounds, style: .grouped)
-//        tableview.frame = view.bounds
         tableview.dataSource = self
         tableview.separatorStyle = .none
         tableview.rowHeight = 44
@@ -32,6 +46,26 @@ extension wjSettingsVC {
         tableview.register(nib, forCellReuseIdentifier: settingIden)
         view.addSubview(tableview)
     }
+    
+    // 登录登出
+    func logOutAndInAction() {
+        // 首先将本地存储的相关的信息注销掉
+        if UserDefaults.standard.bool(forKey: isLogin) {
+            UserDefaults.standard.set(nil, forKey: wjUserTelephone)
+            UserDefaults.standard.set(nil, forKey: wjPassword)
+            UserDefaults.standard.set(false, forKey: isLogin)
+            // 提示
+            SVProgressHUD.showInfo(withStatus: "用户已经注销成功")
+            navigationItem.rightBarButtonItem?.title = "登录"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "注销"
+            let loginVC = wjLoginVC()
+            loginVC.title = "登录"
+            let nav = wjNavigationVC(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 
