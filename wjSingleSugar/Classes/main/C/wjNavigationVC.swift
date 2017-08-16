@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class wjNavigationVC: UINavigationController {
     
@@ -36,7 +37,12 @@ class wjNavigationVC: UINavigationController {
     }
     
     func wjNavigationPopClick() {
-        
+        if SVProgressHUD.isVisible() {
+            SVProgressHUD.dismiss()
+        }
+        if UIApplication.shared.isNetworkActivityIndicatorVisible {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
         popViewController(animated: true)
     }
     
