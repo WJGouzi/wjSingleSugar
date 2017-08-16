@@ -106,6 +106,7 @@ extension wjMeVC : UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: iden)
         }
         cell?.textLabel?.text = "已经登录的了--" + String(indexPath.row)
+        cell?.selectionStyle = .none
         return cell!
     }
 }
@@ -135,11 +136,14 @@ extension wjMeVC {
     }
 }
 
+
 // 按钮的点击事件
 extension wjMeVC {
     // 顶部的消息通知
     func noticeBtnAction() {
-        
+        let noticeVC = wjNoticeVC()
+        noticeVC.title = "通知"
+        navigationController?.pushViewController(noticeVC, animated: true)
     }
     
     // 顶部的设置
