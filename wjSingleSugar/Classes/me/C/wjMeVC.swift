@@ -72,7 +72,12 @@ extension wjMeVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        if UserDefaults.standard.bool(forKey: isLogin) {
+            // 登录了就有，没有登录就没
+            return 44
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -131,6 +136,9 @@ extension wjMeVC {
     
     // 头像的点击和底部的登录按钮的点击
     func loginAction() {
-        
+        let loginVC = wjLoginVC()
+        loginVC.title = "登录"
+        let nav = wjNavigationVC(rootViewController: loginVC)
+        present(nav, animated: true, completion: nil)
     }
 }

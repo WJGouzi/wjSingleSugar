@@ -22,7 +22,7 @@ class wjSingleSugarVC: wjMainBaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        wjReloadData()
         wjNavigationSettings()
         wjSingleSugarTopBarDataRequest()
     }
@@ -44,6 +44,18 @@ extension wjSingleSugarVC {
 
 // MARK:- 数据加载
 extension wjSingleSugarVC {
+    func wjReloadData() {
+        // 有待优化
+        let btn = UIButton()
+        btn.center = view.center
+        btn.width = 50
+        btn.height = 50
+        btn.setImage(UIImage(named : "tableview_loading"), for: .normal)
+        view.addSubview(btn)
+        btn.addTarget(self, action: #selector(self.wjSingleSugarTopBarDataRequest), for: .touchUpInside)
+    }
+    
+    
     // 获取顶部的标签的数据
     func wjSingleSugarTopBarDataRequest() {
         weak var weakSelf = self

@@ -41,6 +41,8 @@
 		C49160641F443089002367BE /* wjSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49160631F443089002367BE /* wjSettingModel.swift */; };
 		C49160671F4433A4002367BE /* wjSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49160651F4433A4002367BE /* wjSettingCell.swift */; };
 		C49160681F4433A4002367BE /* wjSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C49160661F4433A4002367BE /* wjSettingCell.xib */; };
+		C491606D1F4443DA002367BE /* wjLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491606C1F4443DA002367BE /* wjLoginVC.swift */; };
+		C491606F1F44446B002367BE /* wjLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C491606E1F44446B002367BE /* wjLoginVC.xib */; };
 		C4AAAE471F3DA16A0033A7DA /* wjSingleSugarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE461F3DA16A0033A7DA /* wjSingleSugarVC.swift */; };
 		C4AAAE491F3DA1EF0033A7DA /* wjProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE481F3DA1EF0033A7DA /* wjProductVC.swift */; };
 		C4AAAE4B1F3DA2050033A7DA /* wjCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */; };
@@ -99,6 +101,8 @@
 		C49160631F443089002367BE /* wjSettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSettingModel.swift; sourceTree = "<group>"; };
 		C49160651F4433A4002367BE /* wjSettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSettingCell.swift; sourceTree = "<group>"; };
 		C49160661F4433A4002367BE /* wjSettingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjSettingCell.xib; sourceTree = "<group>"; };
+		C491606C1F4443DA002367BE /* wjLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjLoginVC.swift; sourceTree = "<group>"; };
+		C491606E1F44446B002367BE /* wjLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjLoginVC.xib; sourceTree = "<group>"; };
 		C4AAAE461F3DA16A0033A7DA /* wjSingleSugarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjSingleSugarVC.swift; sourceTree = "<group>"; };
 		C4AAAE481F3DA1EF0033A7DA /* wjProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjProductVC.swift; sourceTree = "<group>"; };
 		C4AAAE4A1F3DA2050033A7DA /* wjCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCategoryVC.swift; sourceTree = "<group>"; };
@@ -147,21 +151,6 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
-		9B5E7FAB1F4094F600C7F865 /* login */ = {
-			isa = PBXGroup;
-			children = (
-				9B5E7FAC1F40950C00C7F865 /* V */,
-			);
-			path = login;
-			sourceTree = "<group>";
-		};
-		9B5E7FAC1F40950C00C7F865 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
 		BA32C41EF6753E761780BE5A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				C41AD24F1F3D548800A62188 /* main */,
-				9B5E7FAB1F4094F600C7F865 /* login */,
+				C49160691F4443A8002367BE /* login */,
 				C41AD2641F3D57D000A62188 /* singleSugar */,
 				C41AD2681F3D57E200A62188 /* product */,
 				C41AD26C1F3D57EB00A62188 /* category */,
@@ -417,6 +406,32 @@
 			path = tool;
 			sourceTree = "<group>";
 		};
+		C49160691F4443A8002367BE /* login */ = {
+			isa = PBXGroup;
+			children = (
+				C491606A1F4443A8002367BE /* C */,
+				C491606B1F4443A8002367BE /* V */,
+			);
+			name = login;
+			path = main/login;
+			sourceTree = "<group>";
+		};
+		C491606A1F4443A8002367BE /* C */ = {
+			isa = PBXGroup;
+			children = (
+				C491606C1F4443DA002367BE /* wjLoginVC.swift */,
+				C491606E1F44446B002367BE /* wjLoginVC.xib */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		C491606B1F4443A8002367BE /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,6 +504,7 @@
 				C49160621F442F32002367BE /* SettingCell.plist in Resources */,
 				C476BF351F429C6F00E51650 /* wjCommentCell.xib in Resources */,
 				C41AD2411F3D533700A62188 /* Assets.xcassets in Resources */,
+				C491606F1F44446B002367BE /* wjLoginVC.xib in Resources */,
 				9B5E7FA81F3E142100C7F865 /* wjEachPageCell.xib in Resources */,
 				C49160681F4433A4002367BE /* wjSettingCell.xib in Resources */,
 			);
@@ -586,6 +602,7 @@
 				C49160601F442E46002367BE /* wjSettingsVC.swift in Sources */,
 				C489A4F11F4428B900C5AE2A /* wjFooterView.swift in Sources */,
 				9B5E7FB11F40A72A00C7F865 /* wjProductCell.swift in Sources */,
+				C491606D1F4443DA002367BE /* wjLoginVC.swift in Sources */,
 				C41AD25F1F3D55D900A62188 /* wjNavigationVC.swift in Sources */,
 				C4FECA761F43EFAA00D7688F /* wjSeeAllVC.swift in Sources */,
 				C476BF2B1F42834B00E51650 /* wjDetailBottomView.swift in Sources */,
