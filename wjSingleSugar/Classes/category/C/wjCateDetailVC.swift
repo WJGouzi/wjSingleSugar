@@ -10,10 +10,14 @@ import UIKit
 
 let cateDetailCellIden = "cateDetailCell"
 
+
+
+
 class wjCateDetailVC: UITableViewController {
 
     var id = Int()
-    
+    var type = String()
+
     var models = [wjCateDetailModel]()
     
     override func viewDidLoad() {
@@ -37,13 +41,46 @@ extension wjCateDetailVC {
 }
 
 
+enum name {
+    case posts
+    case items
+    func wjDescription() -> String {
+        switch self {
+        case .posts:
+            return "posts"
+        case .items:
+            return "items"
+        }
+    }
+}
 // 数据加载
 extension wjCateDetailVC {
+    
     func wjLoadDetailData() {
-        wjNetworkTool.shareNetwork.wjLoadEachCategoryDetailData(id: id) { (models) in
+        var url = String()
+        var param = [String : Int]()
+        var arrName = String()
+        if type == "专题合集" {
+            url = BASE_URL + "v1/collections/\(id)/posts"
+            param = ["gender" : 1,
+                     "generation" : 1,
+                     "limit" : 20,
+                     "offset" : 0]
+            arrName = name.posts.wjDescription()
+        } else if type == "风格品类" {
+            url = BASE_URL + "v1/channels/\(id)/items"
+            param = [
+                "limit" : 40,
+                "offset" : 0
+            ]
+//            print("id: \(id)")
+            arrName = name.items.wjDescription()
+        }
+        wjNetworkTool.shareNetwork.wjLoadDetailCellData(url: url, param: param as [String : AnyObject], arrayName: arrName,  finished: { (models) in
             self.models = models
             self.tableView.reloadData()
-        }
+        })
+        
     }
 }
 

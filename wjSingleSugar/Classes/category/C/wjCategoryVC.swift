@@ -18,7 +18,7 @@ class wjCategoryVC: wjMainBaseVC {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = wjGlobalColor()
         scrollView.frame = CGRect(x: 0, y: 0, width: SCREENW, height: SCREENH)
-        scrollView.contentSize = CGSize(width: SCREENW, height: 900)
+//        scrollView.contentSize = CGSize(width: SCREENW, height: 900)
         scrollView.isScrollEnabled = true
         return scrollView
     }()
@@ -29,6 +29,16 @@ class wjCategoryVC: wjMainBaseVC {
         topView.delegate = self
         return topView
     }()
+    
+    
+    lazy var wjStyleClassView : wjStyleAndClassView = {
+        let styleClassView = wjStyleAndClassView()
+        styleClassView.backgroundColor = wjGlobalColor()
+        return styleClassView
+    }()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,18 +62,20 @@ extension wjCategoryVC {
     }
     
     func wjSetUpUI() {
+        let topViewHeight = CGFloat(135)
         view.addSubview(categoryScrollView)
-        wjTopScrollView.frame = CGRect(x: 0, y: 0, width: SCREENW, height: 135)
+        wjTopScrollView.frame = CGRect(x: 0, y: 0, width: SCREENW, height: topViewHeight)
         categoryScrollView.addSubview(wjTopScrollView)
-        
-        
-        
+        wjStyleClassView.frame = CGRect(x: 0, y: wjTopScrollView.frame.maxY + kMargin, width: SCREENW, height: SCREENH - 160)
+        wjStyleClassView.delegate = self
+        categoryScrollView.addSubview(wjStyleClassView)
+        categoryScrollView.contentSize = CGSize(width: SCREENW, height: wjStyleClassView.frame.maxY)
     }
 }
 
 
 // 按钮的一些点击操作
-extension wjCategoryVC : wjCategoryDelegate {
+extension wjCategoryVC : wjCategoryDelegate, wjStyleAndClassDelegate {
     func wjSearchAction() {
         
     }
@@ -79,6 +91,16 @@ extension wjCategoryVC : wjCategoryDelegate {
         let cateDetailVC = wjCateDetailVC()
         cateDetailVC.title = model.title!
         cateDetailVC.id = model.id!
+        cateDetailVC.type = "专题合集"
         navigationController?.pushViewController(cateDetailVC, animated: true)
     }
+    
+    func wjStyleAndClassViewButtonDidClicked(button: UIButton) {
+        let collectionDetailVC = wjCateDetailVC()
+        collectionDetailVC.title = button.titleLabel?.text!
+        collectionDetailVC.id = button.tag
+        collectionDetailVC.type = "风格品类"
+        navigationController?.pushViewController(collectionDetailVC, animated: true)
+    }
+    
 }

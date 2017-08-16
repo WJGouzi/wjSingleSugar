@@ -15,7 +15,7 @@ class wjNetworkTool: NSObject {
     /// 属性
     static let shareNetwork =  wjNetworkTool()
     
-    
+    // MARK:- 单糖页面的数据请求
     /// 获取首页的顶部的选择的数据
     func wjLoadHomePageTopData(finished : @escaping (_ wj_channels:[wjChannelModel])->()) {
         let url = BASE_URL + "v2/channels/preset"
@@ -89,6 +89,8 @@ class wjNetworkTool: NSObject {
         }
     }
     
+    
+    // MARK:- 单品页面的数据请求
     /// 单品页面的数据
     func wjLoadProductPageData(finished : @escaping (_ productItems : [wjProductModel])->()) {
         let url = BASE_URL + "v2/items"
@@ -189,7 +191,7 @@ class wjNetworkTool: NSObject {
         }
     }
     
-    
+    // MARK:- 分类页面的请求
     /// 分类页面顶部的scrollview的展示的图片
     func wjLoadCategoryTopCollection(limit: Int, finished:@escaping (_ collections: [wjCateTopModel]) -> ()) {
         SVProgressHUD.show(withStatus: "正在加载...")
@@ -263,6 +265,113 @@ class wjNetworkTool: NSObject {
     }
     
     
+    /// 风格和品类的数据请求
+    func wjLoadStyleAndClassData(finished:@escaping (_ groups: [AnyObject])->()) {
+        SVProgressHUD.show(withStatus: "正在加载...")
+        let url = BASE_URL + "v1/channel_groups/all"
+        Alamofire.request(url).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionary {
+                    if let channel_groups = data["channel_groups"]?.arrayObject {
+                       
+                        var channlGroups = [AnyObject]()
+                        for channel_group in channel_groups {
+                            var groups = [wjGroupModel]()
+                            let channel_groupDict = channel_group as! [String : AnyObject]
+                            let channels = channel_groupDict["channels"] as! [AnyObject]
+                            for channel in channels {
+                                let group = wjGroupModel(dict: channel as! [String : AnyObject])
+                                groups.append(group)
+                            }
+                            channlGroups.append(groups as AnyObject)
+                        }
+                        finished(channlGroups)
+                    }
+                }
+            }
+        }
+    }
     
+    
+    /// 点击风格品类的每个collectionView的展示界面
+    func wjLoadEachStyleAndClassCellData(id : Int, finished: @escaping(_ model : [wjCateDetailModel])->()) {
+        SVProgressHUD.show(withStatus: "正在加载")
+        let url = BASE_URL + "v1/channels/\(id)/items"
+        let param = [
+            "limit" : 40,
+            "offset" : 0
+        ]
+        Alamofire.request(url, parameters: param).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionary {
+                    if let posts = data["posts"]?.arrayObject {
+                        var postsModels = [wjCateDetailModel]()
+                        for post in posts {
+                            let postDict = wjCateDetailModel(dict: post as! [String : AnyObject])
+                            postsModels.append(postDict)
+                        }
+                        finished(postsModels)
+                    }
+                }
+            }
+        }
+    }
+    
+    /// 分类页面加载所有的列表
+    func wjLoadDetailCellData(url : String, param : [String : AnyObject] , arrayName : String ,finished : @escaping(_ model : [wjCateDetailModel])->()) {
+        SVProgressHUD.show(withStatus: "正在加载")
+        Alamofire.request(url, parameters: param).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let dict = JSON(value)
+                let code = dict["code"].intValue
+                let message = dict["message"].stringValue
+                guard code == RETURN_OK else {
+                    SVProgressHUD.showInfo(withStatus: message)
+                    return
+                }
+                SVProgressHUD.dismiss()
+                if let data = dict["data"].dictionary {
+                    if let posts = data[arrayName]?.arrayObject {
+                        var postsModels = [wjCateDetailModel]()
+                        for post in posts {
+                            let postDict = wjCateDetailModel(dict: post as! [String : AnyObject])
+                            postsModels.append(postDict)
+                        }
+                        finished(postsModels)
+                    }
+                }
+            }
+        }
+
+    }
+
 
 }

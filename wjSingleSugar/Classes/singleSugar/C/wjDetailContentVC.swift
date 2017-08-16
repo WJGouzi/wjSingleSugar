@@ -67,8 +67,9 @@ extension wjDetailContentVC {
 
 extension wjDetailContentVC : UIWebViewDelegate {
     func webViewDidStartLoad(_ webView: UIWebView) {
-        SVProgressHUD.setStatus("正在加载...")
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        SVProgressHUD.setStatus("正在加载...")
+        
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
