@@ -17,7 +17,8 @@ class wjCategoryVC: wjMainBaseVC {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = wjGlobalColor()
-        scrollView.frame = CGRect(x: 0, y: 64, width: SCREENW, height: SCREENH - 64)
+        scrollView.frame = CGRect(x: 0, y: 0, width: SCREENW, height: SCREENH)
+        scrollView.contentSize = CGSize(width: SCREENW, height: 900)
         scrollView.isScrollEnabled = true
         return scrollView
     }()
@@ -52,13 +53,10 @@ extension wjCategoryVC {
     
     func wjSetUpUI() {
         view.addSubview(categoryScrollView)
-        view.addSubview(wjTopScrollView)
+        wjTopScrollView.frame = CGRect(x: 0, y: 0, width: SCREENW, height: 135)
+        categoryScrollView.addSubview(wjTopScrollView)
         
-        // 约束
-        wjTopScrollView.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(categoryScrollView)
-            make.height.equalTo(135)
-        }
+        
         
     }
 }
