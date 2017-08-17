@@ -129,8 +129,11 @@ extension wjMeVC {
             tempFrame.origin.y = offsetY
             tempFrame.size.height = kwjMineHeaderImageHeight - offsetY
             headerView.backImageView.frame = tempFrame
-        } else if offsetY >= 180 {
-            
+        } else if offsetY >= 170 {
+            navigationController?.setNavigationBarHidden(false, animated: false)
+            self.title = "我的"
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: false)
         }
         
     }

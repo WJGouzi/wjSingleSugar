@@ -58,8 +58,6 @@ extension wjProductDetailVC {
         }
         contentScrollView.contentSize = CGSize(width: SCREENW, height: SCREENH - 64 - 45 + kMargin + 520)
     }
-    
-    
 }
 
 
@@ -93,7 +91,6 @@ extension wjProductDetailVC : wjProductDetailToolBarDelegate {
             isLiked = !isLiked
         }
     }
-    
 }
 
 
