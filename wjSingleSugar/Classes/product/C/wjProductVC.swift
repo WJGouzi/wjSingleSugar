@@ -95,12 +95,29 @@ extension wjProductVC : UICollectionViewDelegateFlowLayout {
 }
 
 // MARK:- wjProductCellDelegate
+var isProductLiked = false
 extension wjProductVC : wjProductCellDelegate {
     func wjLikeBtnClickAciton(_ btn: UIButton) {
         if !UserDefaults.standard.bool(forKey: isLogin) {
-            
+            let loginVC = wjLoginVC()
+            loginVC.title = "登录"
+            let nav = wjNavigationVC(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
         } else {
-            
+            var count = Int()
+            // 获取到按钮上的喜欢的数量
+            if let likedText = btn.titleLabel?.text {
+                let likeTextArray = likedText.components(separatedBy: " ")
+                count = Int(likeTextArray[1])!
+            }
+            if isProductLiked == false {
+                btn.setImage(UIImage(named : "content-details_like_selected_16x16_"), for: .normal)
+                btn.setTitle(" " +  String(count + 1) + " ", for: .normal)
+            } else {
+                btn.setImage(UIImage(named : "Search_GiftBtn_Default_12x10_"), for: .normal)
+                btn.setTitle(" " +  String(count - 1) + " ", for: .normal)
+            }
+            isProductLiked = !isProductLiked
         }
     }
 }

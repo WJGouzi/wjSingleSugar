@@ -40,7 +40,6 @@ extension wjCateDetailVC {
     }
 }
 
-
 enum name {
     case posts
     case items
@@ -73,7 +72,6 @@ extension wjCateDetailVC {
                 "limit" : 40,
                 "offset" : 0
             ]
-//            print("id: \(id)")
             arrName = name.items.wjDescription()
         }
         wjNetworkTool.shareNetwork.wjLoadDetailCellData(url: url, param: param as [String : AnyObject], arrayName: arrName,  finished: { (models) in
@@ -109,9 +107,30 @@ extension wjCateDetailVC {
     }
 }
 
+
+var isCateDetailProductLiked = false
 extension wjCateDetailVC : wjEachTopicCellDelegate {
     func wjLikedBtnClickedAction(likedBtn: UIButton) {
-        
+        if !UserDefaults.standard.bool(forKey: isLogin) {
+            let loginVC = wjLoginVC()
+            loginVC.title = "登录"
+            let nav = wjNavigationVC(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+        } else {
+            var count = Int()
+            if let likedText = likedBtn.titleLabel?.text {
+                let likeTextArray = likedText.components(separatedBy: " ")
+                count = Int(likeTextArray[1])!
+            }
+            if isCateDetailProductLiked == false {
+                likedBtn.setImage(UIImage(named : "content-details_like_selected_16x16_"), for: .normal)
+                likedBtn.setTitle(" " +  String(count + 1) + " ", for: .normal)
+            } else {
+                likedBtn.setImage(UIImage(named : "Feed_FavoriteIcon_17x17_"), for: .normal)
+                likedBtn.setTitle(" " +  String(count - 1) + " ", for: .normal)
+            }
+            isCateDetailProductLiked = !isCateDetailProductLiked
+        }
     }
 }
 

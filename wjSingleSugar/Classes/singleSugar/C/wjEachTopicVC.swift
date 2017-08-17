@@ -86,6 +86,7 @@ extension wjEachTopicVC {
     }
 }
 
+var isLikeClicked = false
 // MARK:- wjEachTopicCellDelegate
 extension wjEachTopicVC : wjEachTopicCellDelegate {
     
@@ -96,14 +97,18 @@ extension wjEachTopicVC : wjEachTopicCellDelegate {
             let likeTextArray = likedText.components(separatedBy: " ")
             count = Int(likeTextArray[1])!
         }
-        var isLikeClicked = false
         if !UserDefaults.standard.bool(forKey: isLogin) {
-            //
-            
+            let loginVC = wjLoginVC()
+            loginVC.title = "登录"
+            let nav = wjNavigationVC(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
         } else {
             if isLikeClicked == false {
                 likedBtn.setImage(UIImage(named : "content-details_like_selected_16x16_"), for: .normal)
                 likedBtn.setTitle(" " +  String(count + 1) + " ", for: .normal)
+            } else {
+                likedBtn.setImage(UIImage(named : "Feed_FavoriteIcon_17x17_"), for: .normal)
+                likedBtn.setTitle(" " +  String(count - 1) + " ", for: .normal)
             }
             isLikeClicked = !isLikeClicked
         }

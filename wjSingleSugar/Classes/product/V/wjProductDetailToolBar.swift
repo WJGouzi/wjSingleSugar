@@ -10,6 +10,7 @@ import UIKit
 
 protocol wjProductDetailToolBarDelegate : NSObjectProtocol {
     func wjGotoTmallClickAction()
+    func wjLikedBtnClickAction(_ btn : UIButton)
 }
 
 class wjProductDetailToolBar: UIView {
@@ -19,12 +20,7 @@ class wjProductDetailToolBar: UIView {
     
     @IBOutlet weak var likedBtn: UIButton!
     @IBAction func likedBtnClickAction(_ sender: UIButton) {
-        if !UserDefaults.standard.bool(forKey: isLogin) {
-            // 登录
-            
-        } else {
-            likedBtn.isSelected = true
-        }
+        delegate?.wjLikedBtnClickAction(sender)
     }
 
     @IBAction func goToTmallClickAction(_ sender: UIButton) {

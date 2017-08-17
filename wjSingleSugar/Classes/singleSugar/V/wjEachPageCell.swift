@@ -55,6 +55,7 @@ class wjEachPageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        likedBtn.setImage(UIImage(named: "content-details_like_selected_16x16_"), for: .selected)
         likedBtn.layer.cornerRadius = likedBtn.height * 0.5
         likedBtn.layer.masksToBounds = true
         likedBtn.layer.rasterizationScale = UIScreen.main.scale

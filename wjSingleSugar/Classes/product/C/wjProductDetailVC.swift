@@ -71,7 +71,7 @@ extension wjProductDetailVC {
     }
 }
 
-
+var isLiked = false
 extension wjProductDetailVC : wjProductDetailToolBarDelegate {
     func wjGotoTmallClickAction() {
         // 使用之前的detailContentVC
@@ -80,6 +80,20 @@ extension wjProductDetailVC : wjProductDetailToolBarDelegate {
         detailConteVC.title = "商品详情"
         navigationController?.pushViewController(detailConteVC, animated: true)
     }
+    
+    func wjLikedBtnClickAction(_ btn: UIButton) {
+        if !UserDefaults.standard.bool(forKey: isLogin) {
+            // 登录
+            let loginVC = wjLoginVC()
+            loginVC.title = "登录"
+            let nav = wjNavigationVC(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+        } else {
+            btn.isSelected = !isLiked
+            isLiked = !isLiked
+        }
+    }
+    
 }
 
 
