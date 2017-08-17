@@ -33,9 +33,13 @@ class wjMeHeaderView: UIView {
     
     lazy var headImageBtn : UIButton = {
         let iconBtn = UIButton()
-        iconBtn.setImage(UIImage(named : "Me_AvatarPlaceholder_75x75_"), for: .normal)
-        iconBtn.layer.cornerRadius = iconBtn.width * 0.5
-        iconBtn.layer.masksToBounds = true
+        let imageData = UserDefaults.standard.object(forKey: userHeadImage) as? Data
+        if imageData != nil {
+            let image = UIImage(data: imageData!)
+            iconBtn.setImage(image, for: .normal)
+        } else {
+            iconBtn.setImage(UIImage(named : "Me_AvatarPlaceholder_75x75_"), for: .normal)
+        }
         return iconBtn
     }()
     

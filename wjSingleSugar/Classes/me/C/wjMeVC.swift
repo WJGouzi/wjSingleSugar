@@ -11,7 +11,7 @@ import UIKit
 class wjMeVC: wjMainBaseVC {
 
     var tableView : UITableView?
-    
+    var headBtn = UIButton()
     
     // 懒加载
     lazy var headerView : wjMeHeaderView = {
@@ -29,7 +29,6 @@ class wjMeVC: wjMainBaseVC {
         footView.heartBtn.addTarget(self, action: #selector(self.loginAction), for: .touchUpInside)
         return footView
     }()
-    
     
     
     // 生命周期
@@ -50,6 +49,12 @@ class wjMeVC: wjMainBaseVC {
         wjSetUpUISettings()
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
 }
 
 
@@ -129,12 +134,13 @@ extension wjMeVC {
             tempFrame.origin.y = offsetY
             tempFrame.size.height = kwjMineHeaderImageHeight - offsetY
             headerView.backImageView.frame = tempFrame
-        } else if offsetY >= 170 {
-            navigationController?.setNavigationBarHidden(false, animated: false)
-            self.title = "我的"
-        } else {
-            navigationController?.setNavigationBarHidden(true, animated: false)
         }
+//        else if offsetY >= 170 {
+//            navigationController?.setNavigationBarHidden(false, animated: false)
+//            self.title = "我的"
+//        } else {
+//            navigationController?.setNavigationBarHidden(true, animated: false)
+//        }
         
     }
 }
@@ -159,10 +165,11 @@ extension wjMeVC {
     
     
     // 头像的点击和修改头像按钮的点击
-    func wjHeadImageBtnClickAction() {
+    func wjHeadImageBtnClickAction(_ btn : UIButton) {
         if UserDefaults.standard.bool(forKey: isLogin) {
             // 登录就修改头像
-            
+            print(btn.frame)
+            wjSelectedHeadViewImage(btn)
         } else {
             // 没有登录就就进行登录
             loginAction()
@@ -177,4 +184,39 @@ extension wjMeVC {
         let nav = wjNavigationVC(rootViewController: loginVC)
         present(nav, animated: true, completion: nil)
     }
+    
+    // 修改头像
+    func wjSelectedHeadViewImage(_ btn : UIButton) {
+        // 相册中选择
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+        headBtn = btn
+    }
 }
+
+
+extension wjMeVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print(info)
+        let selectedImage = info["UIImagePickerControllerEditedImage"] as! UIImage
+        headBtn.setImage(selectedImage, for: .normal)
+        // 图片进行切圆角处理
+        UIGraphicsBeginImageContext(selectedImage.size);
+        let ctx = UIGraphicsGetCurrentContext();
+        let rect = CGRect(x: 0, y: 0, width: selectedImage.size.width, height: selectedImage.size.height)
+        ctx!.addEllipse(in: rect);
+        ctx!.clip();
+        selectedImage.draw(in: rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();        
+        let imageData = UIImagePNGRepresentation(image!)
+        UserDefaults.standard.set(imageData, forKey: userHeadImage)
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+

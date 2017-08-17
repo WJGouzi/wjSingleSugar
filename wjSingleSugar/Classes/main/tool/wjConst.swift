@@ -56,6 +56,7 @@ let wjFirstLaunch = "firstLaunch"
 let isLogin = "isLogin"
 let wjUserTelephone = "telephone"
 let wjPassword = "password"
+let userHeadImage = "userHeadImage"
 
 
 
