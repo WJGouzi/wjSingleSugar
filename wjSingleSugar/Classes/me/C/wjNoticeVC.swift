@@ -31,6 +31,7 @@ extension wjNoticeVC {
         }
         cell?.textLabel?.text = "消息"
         cell?.detailTextLabel?.text = "详细消息:" + String(indexPath.row)
+        cell?.selectionStyle = .none
         return cell!
     }
     

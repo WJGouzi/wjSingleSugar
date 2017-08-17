@@ -91,6 +91,15 @@ var isLikeClicked = false
 extension wjEachTopicVC : wjEachTopicCellDelegate {
     
     func wjLikedBtnClickedAction(likedBtn: UIButton) {
+        /*
+         注意:
+            这里的bug存点的点为:
+            1.本控制器的每个cell在点击后的，在点击本控制器的cell的喜欢按钮后，之前的cell的状态会一直保留着的
+            2.在不同的控制器之间进行切换的时候，cell的点击状态也依然是被保存了的。
+         解决办法:
+            要不就把每个控制器的cell进绑定，然后在点击的时候进行判断。？
+         */
+        
         var count = Int()
         // 获取到按钮上的喜欢的数量
         if let likedText = likedBtn.titleLabel?.text {

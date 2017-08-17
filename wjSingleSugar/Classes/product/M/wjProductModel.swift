@@ -27,6 +27,8 @@ class wjProductModel: NSObject {
     var updated_at: Int?
     var url: String?
     
+    var liked : Bool?
+    
     
     init(dict : [String : AnyObject]) {
         super.init()
@@ -46,7 +48,7 @@ class wjProductModel: NSObject {
         purchase_url = dict["purchase_url"] as? String
         updated_at = dict["updated_at"] as? Int
         url = dict["url"] as? String
-
+        liked = false
     }
     
 }

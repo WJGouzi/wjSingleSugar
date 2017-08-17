@@ -34,7 +34,8 @@ class wjMeVC: wjMainBaseVC {
     // 生命周期
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.setNavigationBarHidden(true, animated: false) // 隐藏导航栏
+//        navigationController?.setNavigationBarHidden(true, animated: false) // 隐藏导航栏
+        navigationController?.navigationBar.isHidden = true
         if !UserDefaults.standard.bool(forKey: isLogin) {
             tableView?.tableFooterView = footerView
         } else {
@@ -50,9 +51,15 @@ class wjMeVC: wjMainBaseVC {
         
     }
     
+    // 解决隐藏导航栏后的push界面不显示导航栏的bug->不能带有动画的操作。
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        navigationController?.navigationBar.isHidden = false
     }
     
 }
@@ -134,14 +141,15 @@ extension wjMeVC {
             tempFrame.origin.y = offsetY
             tempFrame.size.height = kwjMineHeaderImageHeight - offsetY
             headerView.backImageView.frame = tempFrame
+        } else if offsetY >= 170 {
+            navigationController?.navigationBar.isHidden = false
+            self.title = "我的"
+            UIApplication.shared.statusBarStyle = .default
+        } else {
+            headerView.backImageView.frame = CGRect(x: 0, y: 0, width: headerView.backImageView.width, height: headerView.backImageView.height)
+            navigationController?.navigationBar.isHidden = true
+            UIApplication.shared.statusBarStyle = .lightContent
         }
-//        else if offsetY >= 170 {
-//            navigationController?.setNavigationBarHidden(false, animated: false)
-//            self.title = "我的"
-//        } else {
-//            navigationController?.setNavigationBarHidden(true, animated: false)
-//        }
-        
     }
 }
 

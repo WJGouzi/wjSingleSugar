@@ -41,6 +41,11 @@ class wjProductCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
+        if model?.liked! == false {
+            likedBtn.setImage(UIImage(named : "Search_GiftBtn_Default_12x10_"), for: .normal)
+        } else {
+            likedBtn.setImage(UIImage(named : "content-details_like_selected_16x16_"), for: .selected)
+        }
     }
 
     
