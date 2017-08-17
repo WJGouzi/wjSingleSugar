@@ -203,7 +203,6 @@ extension wjMeVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print(info)
         let selectedImage = info["UIImagePickerControllerEditedImage"] as! UIImage
-        headBtn.setImage(selectedImage, for: .normal)
         // 图片进行切圆角处理
         UIGraphicsBeginImageContext(selectedImage.size);
         let ctx = UIGraphicsGetCurrentContext();
@@ -212,9 +211,10 @@ extension wjMeVC : UIImagePickerControllerDelegate, UINavigationControllerDelega
         ctx!.clip();
         selectedImage.draw(in: rect)
         let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();        
+        UIGraphicsEndImageContext();
         let imageData = UIImagePNGRepresentation(image!)
         UserDefaults.standard.set(imageData, forKey: userHeadImage)
+        headBtn.setImage(image, for: .normal)
         dismiss(animated: true, completion: nil)
     }
     
