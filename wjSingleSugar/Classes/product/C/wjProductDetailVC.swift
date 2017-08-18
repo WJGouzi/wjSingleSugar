@@ -32,6 +32,7 @@ class wjProductDetailVC: wjMainBaseVC {
         super.viewDidLoad()
         wjNavigationSettings()
         wjDetailUISettings()
+        wjLog(model?.url)
     }
 }
 
@@ -65,9 +66,12 @@ extension wjProductDetailVC {
 extension wjProductDetailVC {
     // 分享按钮的点击事件
     func wjShareAction() {
-        
+        let shareSheetView = wjShareActionSheet.showShareSheet()
+        shareSheetView.model = self.model
     }
 }
+
+
 
 var isLiked = false
 extension wjProductDetailVC : wjProductDetailToolBarDelegate {
@@ -92,7 +96,6 @@ extension wjProductDetailVC : wjProductDetailToolBarDelegate {
         }
     }
 }
-
 
 extension wjProductDetailVC : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

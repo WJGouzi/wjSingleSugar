@@ -79,11 +79,10 @@ extension wjNoticeVC {
 extension wjNoticeVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        backView.removeFromSuperview()
-        backView.size = CGSize(width: 300, height: 550)
-        backView.frame.origin = CGPoint(x: view.centerX - 150, y: view.centerY - 275 - 32)
-        view.addSubview(backView)
+        backView.frame = view.frame
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(backView)
+
         backView.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 230, height: 450))
@@ -100,14 +99,14 @@ extension wjNoticeVC {
         backView.addSubview(btn)
         btn.snp.makeConstraints { (make) in
             make.right.equalTo(backView).offset(-5)
-            make.top.equalTo(backView).offset(5)
+            make.top.equalTo(backView).offset(75)
         }
         
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.fromValue = 0
         animation.toValue = 1
         animation.repeatCount = 1
-        animation.duration = 0.5
+        animation.duration = 0.2
         animation.autoreverses = false
         backView.layer.add(animation, forKey: nil)
     }

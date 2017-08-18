@@ -28,6 +28,7 @@
 		C46DD8EE1F43D3F000462CFC /* wjStyleAndClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46DD8ED1F43D3F000462CFC /* wjStyleAndClassView.swift */; };
 		C46EA9521F42F7CE00DF9F08 /* wjCateDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */; };
 		C46EA9541F42FC1F00DF9F08 /* wjCateDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */; };
+		C4742AFC1F4696E2002E893F /* wjShareActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4742AFB1F4696E2002E893F /* wjShareActionSheet.swift */; };
 		C476BF2B1F42834B00E51650 /* wjDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476BF2A1F42834B00E51650 /* wjDetailBottomView.swift */; };
 		C476BF2D1F42867B00E51650 /* wjChoiceBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476BF2C1F42867B00E51650 /* wjChoiceBtn.swift */; };
 		C476BF2F1F42868D00E51650 /* wjChoiceBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */; };
@@ -91,6 +92,7 @@
 		C46DD8ED1F43D3F000462CFC /* wjStyleAndClassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjStyleAndClassView.swift; sourceTree = "<group>"; };
 		C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailVC.swift; sourceTree = "<group>"; };
 		C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailModel.swift; sourceTree = "<group>"; };
+		C4742AFB1F4696E2002E893F /* wjShareActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjShareActionSheet.swift; sourceTree = "<group>"; };
 		C476BF2A1F42834B00E51650 /* wjDetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailBottomView.swift; sourceTree = "<group>"; };
 		C476BF2C1F42867B00E51650 /* wjChoiceBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjChoiceBtn.swift; sourceTree = "<group>"; };
 		C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjChoiceBtn.xib; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */,
 				C476BF321F429C6F00E51650 /* wjCommentCell.swift */,
 				C476BF331F429C6F00E51650 /* wjCommentCell.xib */,
+				C4742AFB1F4696E2002E893F /* wjShareActionSheet.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				C41AD2781F3D59A300A62188 /* wjConst.swift in Sources */,
 				C476BF341F429C6F00E51650 /* wjCommentCell.swift in Sources */,
 				9B5E7FAA1F40371700C7F865 /* wjEachTopicVC.swift in Sources */,
+				C4742AFC1F4696E2002E893F /* wjShareActionSheet.swift in Sources */,
 				C476BF2D1F42867B00E51650 /* wjChoiceBtn.swift in Sources */,
 				C4ACA9891F413AA90069C6B4 /* wjProductModel.swift in Sources */,
 				9B5E7FBA1F449DB700C7F865 /* wjNoticeVC.swift in Sources */,
