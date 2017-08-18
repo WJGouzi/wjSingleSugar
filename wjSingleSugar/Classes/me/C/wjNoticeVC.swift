@@ -7,12 +7,49 @@
 //
 
 import UIKit
+import SnapKit
 
 class wjNoticeVC: UITableViewController {
 
+    
+    lazy var backView : UIView = {
+        let backV = UIView()
+        backV.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        return backV
+    }()
+    
+    
+    lazy var imageView : UIImageView = {
+        // 创建一些信息label及imageView
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "icon")
+        return imageView
+    }()
+    
+    lazy var label : UILabel = {
+        let textLabel = UILabel()
+        textLabel.textColor = wjGlobalRedColor()
+        textLabel.textAlignment = .center
+        textLabel.font = UIFont.systemFont(ofSize: 16.0)
+        return textLabel
+    }()
+    
+    lazy var btn : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("确定", for: .normal)
+        btn.setTitleColor(wjGlobalRedColor(), for: .normal)
+        btn.addTarget(self, action: #selector(self.sureBtnAction), for: .touchUpInside)
+        btn.titleLabel?.sizeToFit()
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func sureBtnAction() {
+        backView.removeFromSuperview()
     }
 }
 
@@ -35,4 +72,43 @@ extension wjNoticeVC {
         return cell!
     }
     
+}
+
+
+// MARK: - Table view delegate
+extension wjNoticeVC {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        backView.removeFromSuperview()
+        backView.size = CGSize(width: 300, height: 550)
+        backView.frame.origin = CGPoint(x: view.centerX - 150, y: view.centerY - 275 - 32)
+        view.addSubview(backView)
+        backView.addSubview(imageView)
+        imageView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 230, height: 450))
+            make.center.equalTo(backView.snp.center)
+        }
+        backView.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.top.equalTo(imageView.snp.bottom).offset(kMargin)
+            make.height.equalTo(25)
+            make.left.right.equalTo(backView)
+        }
+        let cell = tableView.cellForRow(at: indexPath)
+        label.text = "选中的的是 : " + (cell?.textLabel?.text)! + (cell?.detailTextLabel?.text)!
+        backView.addSubview(btn)
+        btn.snp.makeConstraints { (make) in
+            make.right.equalTo(backView).offset(-5)
+            make.top.equalTo(backView).offset(5)
+        }
+        
+        let animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.repeatCount = 1
+        animation.duration = 0.5
+        animation.autoreverses = false
+        backView.layer.add(animation, forKey: nil)
+    }
 }
