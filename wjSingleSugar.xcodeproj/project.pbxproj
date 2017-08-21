@@ -93,6 +93,7 @@
 		C46EA9511F42F7CE00DF9F08 /* wjCateDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailVC.swift; sourceTree = "<group>"; };
 		C46EA9531F42FC1F00DF9F08 /* wjCateDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjCateDetailModel.swift; sourceTree = "<group>"; };
 		C4742AFB1F4696E2002E893F /* wjShareActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjShareActionSheet.swift; sourceTree = "<group>"; };
+		C4742B011F4ABD9C002E893F /* wjSingleSugar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wjSingleSugar-Bridging-Header.h"; sourceTree = "<group>"; };
 		C476BF2A1F42834B00E51650 /* wjDetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjDetailBottomView.swift; sourceTree = "<group>"; };
 		C476BF2C1F42867B00E51650 /* wjChoiceBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wjChoiceBtn.swift; sourceTree = "<group>"; };
 		C476BF2E1F42868D00E51650 /* wjChoiceBtn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wjChoiceBtn.xib; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 			children = (
 				C49160611F442F31002367BE /* SettingCell.plist */,
 				C41AD2611F3D56C800A62188 /* Info.plist */,
+				C4742B011F4ABD9C002E893F /* wjSingleSugar-Bridging-Header.h */,
 			);
 			name = others;
 			path = ..;
@@ -728,6 +730,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 684VKU9G29;
 				INFOPLIST_FILE = wjSingleSugar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -735,6 +738,8 @@
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjun.wjSingleSugar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wjSingleSugar/wjSingleSugar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -745,12 +750,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 684VKU9G29;
 				INFOPLIST_FILE = wjSingleSugar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjun.wjSingleSugar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "wjSingleSugar/wjSingleSugar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

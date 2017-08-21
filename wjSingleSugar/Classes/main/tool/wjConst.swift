@@ -114,3 +114,19 @@ let isIPhone6 = SCREENH == 667 ? true : false
 /// iPhone 6P
 let isIPhone6P = SCREENH == 736 ? true : false
 
+
+
+// MARK:- 分享相关的appkey
+// 微博的appkey
+let weboAppKey = 3413215554
+let kRedirectURI = "https://www.sina.com"
+
+
+
+
+
+
+
+
+
+

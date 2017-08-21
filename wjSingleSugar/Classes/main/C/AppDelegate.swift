@@ -12,9 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    var wbtoken : String?
+    var wbCurrentUserID : String?
+    var wbRefreshToken : String?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // 微博
+        WeiboSDK.enableDebugMode(true)
+        WeiboSDK.registerApp(String(weboAppKey))
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
@@ -22,30 +29,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = wjTabBarVC()
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        wjLog("url is  : \(url),\n self is \(self)")
+        return WeiboSDK.handleOpen(url, delegate: self as? WeiboSDKDelegate)
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        return WeiboSDK.handleOpen(url, delegate: self as? WeiboSDKDelegate)
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    
+    func didReceiveWeiboRequest(request: WBBaseRequest!) {
+        
     }
+    
+    
+    func didReceiveWeiboResponse(response : WBBaseResponse!) {
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        if response is WBSendMessageToWeiboResponse {
+            let title = NSLocalizedString("发送结果", comment: "")
+            let message = NSLocalizedString("响应状态", comment: "") + String(describing: response.statusCode) + NSLocalizedString("响应UserInfo数据", comment: "") + NSLocalizedString("原请求UserInfo数据", comment: "")
+            let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "确定")
+            let sendMessageToWeiboResponse = response as! WBSendMessageToWeiboResponse
+            let accessToken = sendMessageToWeiboResponse.authResponse.accessToken
+            if let accessToken = accessToken {
+                wbtoken = accessToken
+            }
+            let userId = sendMessageToWeiboResponse.authResponse.userID
+            if let userID = userId {
+                wbCurrentUserID = userID
+            }
+            alert.show()
+        } else if response is WBAuthorizeResponse {
+            let title = NSLocalizedString("认证结果", comment: "");
+            let message = NSLocalizedString("响应状态", comment: "") + String(describing: response.statusCode) + String((response as! WBAuthorizeResponse).userID) + String((response as! WBAuthorizeResponse).accessToken) + NSLocalizedString("响应UserInfo数据", comment: "") + String(describing: response.userInfo.values) + NSLocalizedString("原请求UserInfo数据", comment: "")
+             let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "确定")
+            wbtoken = (response as! WBAuthorizeResponse).accessToken
+            wbCurrentUserID = (response as! WBAuthorizeResponse).userID
+            wbRefreshToken = (response as! WBAuthorizeResponse).refreshToken
+            alert.show()
+        }
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+    
 }
 
 

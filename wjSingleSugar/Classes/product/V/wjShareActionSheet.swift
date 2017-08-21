@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class wjShareActionSheet: UIView {
     
@@ -170,6 +171,8 @@ extension wjShareActionSheet {
             case .weChatSession:
                 break
             case .weibo:
+                cancelAction()
+                wjShareToWebo(model!)
                 break
             case .qZone:
                 break
@@ -182,6 +185,30 @@ extension wjShareActionSheet {
         }
     }
     
+    
+}
+
+
+// MARK:- 分享按钮的各种点击事件
+extension wjShareActionSheet {
+    
+    // 微博分享
+    func wjShareToWebo(_ model : wjProductModel) {
+        let authorizeRequest = WBAuthorizeRequest.request() as? WBAuthorizeRequest
+        authorizeRequest?.redirectURI = kRedirectURI
+        authorizeRequest?.scope = "all"
+        let myDelegate = UIApplication.shared.delegate as! AppDelegate
+        let messageObject = WBMessageObject.message() as! WBMessageObject
+        messageObject.text = "这是测试的text文字"
+        let request = WBSendMessageToWeiboRequest.request(withMessage: messageObject, authInfo: authorizeRequest, access_token: myDelegate.wbtoken) as! WBSendMessageToWeiboRequest
+        
+        request.userInfo = ["SSO_Key":"SSO_Value"]
+        WeiboSDK.send(authorizeRequest)
+    }
+    
+    
+    
+    // 复制链接的点击事件
     func wjCopyToClipBoard(_ cooyString : String) {
         let pastedBoard = UIPasteboard.general
         pastedBoard.string = cooyString
@@ -213,4 +240,7 @@ extension wjShareActionSheet {
             }
         }
     }
+
 }
+
+
