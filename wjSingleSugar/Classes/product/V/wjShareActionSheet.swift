@@ -194,9 +194,9 @@ extension wjShareActionSheet {
     
     // 微博分享
     func wjShareToWebo(_ model : wjProductModel) {
-        let authorizeRequest = WBAuthorizeRequest.request() as? WBAuthorizeRequest
-        authorizeRequest?.redirectURI = kRedirectURI
-        authorizeRequest?.scope = "all"
+        let authorizeRequest = WBAuthorizeRequest.request() as! WBAuthorizeRequest
+        authorizeRequest.redirectURI = kRedirectURI
+        authorizeRequest.scope = "all"
         let myDelegate = UIApplication.shared.delegate as! AppDelegate
         let messageObject = WBMessageObject.message() as! WBMessageObject
         messageObject.text = "这是测试的text文字"

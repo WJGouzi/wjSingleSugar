@@ -15,13 +15,14 @@ class wjDetailTopScrollView: UIView {
     // 属性
     var imageUrls = [String]()
     
+    var tempPage : Int!
+    
     // 懒加载
     
     // scrollview
     lazy var topScrollView : UIScrollView = {
         let topScroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: SCREENW, height: 375))
         topScroll.backgroundColor = UIColor.white
-        topScroll.delegate = self
         topScroll.isPagingEnabled = true
         topScroll.bounces = true
         topScroll.showsHorizontalScrollIndicator = false
@@ -35,6 +36,7 @@ class wjDetailTopScrollView: UIView {
         pageControl.currentPageIndicatorTintColor = wjGlobalRedColor()
         pageControl.pageIndicatorTintColor = wjGlobalColor()
         pageControl.hidesForSinglePage = true
+        pageControl.currentPage = 0
         return pageControl
     }()
     
@@ -65,28 +67,42 @@ class wjDetailTopScrollView: UIView {
     // Setter方法
     var productItem : wjProductModel? {
         didSet {
+            wjLog(productItem)
             imageUrls = productItem!.image_urls!
+            let firstImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: SCREENW, height: SCREENW))
+            firstImageView.kf.setImage(with: URL(string : imageUrls.last!), placeholder: UIImage(named : "PlaceHolderImage_small_31x26_"), options: nil, progressBlock: nil, completionHandler: nil)
+            topScrollView.addSubview(firstImageView)
+            
             for (index,value) in imageUrls.enumerated() {
                 // 循环的创建scrollview的imageview
-                let rect = CGRect(x: SCREENW * CGFloat(index), y: 0, width: SCREENW, height: SCREENW)
+                let rect = CGRect(x: SCREENW * CGFloat(index + 1), y: 0, width: SCREENW, height: SCREENW)
                 let imageView = UIImageView(frame: rect)
                 imageView.kf.setImage(with: URL(string: value)!, placeholder: UIImage(named : "PlaceHolderImage_small_31x26_"), options: nil, progressBlock: nil) { (image, error, cacheType, imageURL) in
                 }
                 topScrollView.addSubview(imageView)
             }
-            topScrollView.contentSize = CGSize(width: SCREENW * CGFloat(imageUrls.count), height: 0)
-            pageIndicator.currentPage = 0
+            
+            let lastImageView = UIImageView(frame: CGRect(x: CGFloat(imageUrls.count + 1) * SCREENW, y: 0, width: SCREENW, height: SCREENW))
+            lastImageView.kf.setImage(with: URL(string : imageUrls.first!), placeholder: UIImage(named : "PlaceHolderImage_small_31x26_"), options: nil, progressBlock: nil, completionHandler: nil)
+            topScrollView.addSubview(lastImageView)
+            
+            topScrollView.contentSize = CGSize(width: SCREENW * CGFloat(imageUrls.count + 2), height: 0)
+            topScrollView.contentOffset = CGPoint(x: SCREENW, y: 0)
+            wjLog(topScrollView.subviews.count)
+
             pageIndicator.numberOfPages = imageUrls.count
+            
             titleLabel.text = productItem!.name!
             priceLabel.text = " ￥ " + productItem!.price!
             productDescription.text = productItem!.describe!
         }
     }
-    
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(topScrollView)
+        topScrollView.delegate = self
         addSubview(pageIndicator)
         addSubview(titleLabel)
         addSubview(priceLabel)
@@ -123,15 +139,29 @@ class wjDetailTopScrollView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }
+
 
 // MARK:- UIScrollViewDelegate
 extension wjDetailTopScrollView : UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 滑动
-        var count = pageIndicator.currentPage
-        let offsetx = scrollView.contentOffset.x
-        count = Int(offsetx / SCREENW + 0.5)
-        pageIndicator.currentPage = count
+        let page = Int(scrollView.contentOffset.x / SCREENW + 0.5)
+        pageIndicator.currentPage = page - 1
+        
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var page = Int(scrollView.contentOffset.x / SCREENW + 0.5)
+        if page == 0 {
+            page = imageUrls.count
+        } else if page == imageUrls.count + 1 {
+            page = 1
+        }
+        topScrollView.contentOffset = CGPoint(x: CGFloat(page) * SCREENW, y: 0)
+    }
+    
 }
